@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE SCREEN -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/Egret-light-version.png"
+              alt="Egret-logo"
+              class="w-4"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN PAGE CONTENT -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <h5 class="font-medium">Translation</h5>
+
+        <!-- INTRODUCTION -->
+        <div>
+          <h5 class="font-semibold mt-7">Introduction</h5>
+          <p class="text-base text-muted">
+            Egret Angular uses the <code>ngx-translate</code> library to provide internationalization (i18n) support. This allows you to create a multilingual application where users can switch between different languages. This documentation will guide you through the implementation and usage of translations in your Egret Angular application.
+          </p>
+        </div>
+
+        <!-- SETUP AND CONFIGURATION -->
+        <div>
+          <h5 class="font-semibold mt-7">Setup and Configuration</h5>
+          <p class="text-base text-muted">
+            Egret Angular comes with translation support already configured. The translation module is set up in the <code>app.module.ts</code> file:
+          </p>
+
+          <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// app.module.ts
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+
+@NgModule({
+  // ...
+  imports: [
+    // ...
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    // ...
+  ],
+  // ...
+})
+export class AppModule { }</code></pre>
+
+          <p class="mt-4">
+            The <code>HttpLoaderFactory</code> function creates a loader that will fetch translation files from the <code>assets/i18n</code> directory. By default, Egret Angular includes English (en) and Spanish (es) translations.
+          </p>
+        </div>
+
+        <!-- TRANSLATION FILES -->
+        <div>
+          <h5 class="font-semibold mt-7">Translation Files</h5>
+          <p class="text-base text-muted">
+            Translation files are JSON files located in the <code>src/assets/i18n</code> directory. Each language has its own file with the language code as the filename (e.g., <code>en.json</code>, <code>es.json</code>).
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Example: English Translation File (en.json)</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-json">{
+  "DASHBOARD": "Dashboard",
+  "APPS": "Apps",
+  "INBOX": "Inbox",
+  "CHAT": "Chat",
+  "CALENDAR": "Calendar",
+  "DIALOGS": "Dialogs",
+  "CONFIRM": "Confirm",
+  "LOADER": "Loader",
+  // ...
+}</code></pre>
+          </div>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Example: Spanish Translation File (es.json)</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-json">{
+  "DASHBOARD": "Tablero",
+  "APPS": "Apps",
+  "INBOX": "Mensaje",
+  "CHAT": "Charla",
+  "CALENDAR": "Calendario",
+  "DIALOGS": "Diálogo",
+  "CONFIRM": "Confirmar",
+  "LOADER": "Loader",
+  // ...
+}</code></pre>
+          </div>
+
+          <p class="mt-4">
+            Each key in the translation file corresponds to a translatable text in your application. The keys are typically in uppercase to distinguish them from regular text.
+          </p>
+        </div>
+
+        <!-- USING TRANSLATIONS IN TEMPLATES -->
+        <div>
+          <h5 class="font-semibold mt-7">Using Translations in Templates</h5>
+          <p class="text-base text-muted">
+            To use translations in your templates, you need to use the <code>translate</code> pipe provided by the <code>ngx-translate</code> library.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Basic Usage</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-html">&lt;span&gt;{{ "DASHBOARD" | translate }}&lt;/span&gt;</code></pre>
+            <p class="mt-2">This will display "Dashboard" if the current language is English or "Tablero" if the current language is Spanish.</p>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Using in Navigation Items</h6>
+            <p class="mt-2">In Egret Angular, navigation items are typically defined with translation keys:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-html">&lt;a matRipple routerLink="/{{item.state}}" *ngIf="item.type === 'link'"&gt;
+  &lt;mat-icon&gt;{{item.icon}}&lt;/mat-icon&gt;
+  {{item.name | translate}}
+&lt;/a&gt;</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Using in Breadcrumbs</h6>
+            <p class="mt-2">When defining routes with breadcrumbs, you can use translation keys:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">{
+  path: 'dialogs', 
+  loadChildren: './views/app-dialogs/app-dialogs.module#AppDialogsModule', 
+  data: { title: 'Dialogs', breadcrumb: 'DIALOGS' }
+}</code></pre>
+            <p class="mt-2">The breadcrumb component will automatically translate the 'DIALOGS' key to the appropriate language.</p>
+          </div>
+        </div>
+
+        <!-- USING TRANSLATIONS IN COMPONENTS -->
+        <div>
+          <h5 class="font-semibold mt-7">Using Translations in Components</h5>
+          <p class="text-base text-muted">
+            To use translations in your TypeScript code, you need to inject the <code>TranslateService</code> into your component.
+          </p>
+
+          <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-my-component',
+  templateUrl: './my-component.html'
+})
+export class MyComponent implements OnInit {
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit() {
+    // Get a translation
+    this.translate.get('DASHBOARD').subscribe((res: string) => {
+      console.log(res); // Outputs: "Dashboard" or "Tablero" depending on the current language
+    });
+
+    // Get multiple translations at once
+    this.translate.get(['DASHBOARD', 'APPS']).subscribe((res: any) => {
+      console.log(res.DASHBOARD); // Outputs: "Dashboard" or "Tablero"
+      console.log(res.APPS); // Outputs: "Apps" or "Apps"
+    });
+  }
+}</code></pre>
+        </div>
+
+        <!-- LANGUAGE SWITCHING -->
+        <div>
+          <h5 class="font-semibold mt-7">Language Switching</h5>
+          <p class="text-base text-muted">
+            Egret Angular provides a language switcher in the header components. The implementation can be found in the <code>header-side.component.ts</code> and <code>header-top.component.ts</code> files.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Language Configuration</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In header components
+public availableLangs = [{
+  name: 'EN',
+  code: 'en',
+  flag: 'us'
+}, {
+  name: 'ES',
+  code: 'es',
+  flag: 'es'
+}];
+currentLang = this.availableLangs[0];</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Setting the Default Language</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">ngOnInit() {
+  // ...
+  this.translate.use(this.currentLang.code);
+}</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Changing the Language</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">setLang(lng) {
+  this.currentLang = lng;
+  this.translate.use(lng.code);
+}</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Language Switcher in Template</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-html">&lt;!-- Language Switcher --&gt;
+&lt;button mat-button [matMenuTriggerFor]="menu"&gt;
+  &lt;span class="fi fi-{{currentLang.flag}} mr-2 rtl:ml-2"&gt;&lt;/span&gt;
+  &lt;span&gt;{{currentLang.name}}&lt;/span&gt;
+&lt;/button&gt;
+&lt;mat-menu #menu="matMenu"&gt;
+  &lt;button mat-menu-item *ngFor="let lang of availableLangs" (click)="setLang(lang)"&gt;
+    &lt;span class="fi mr-2 rtl:ml-2 fi-{{lang.flag}}"&gt;&lt;/span&gt;
+    &lt;span&gt;{{lang.name}}&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/mat-menu&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- ADDING NEW LANGUAGES -->
+        <div>
+          <h5 class="font-semibold mt-7">Adding New Languages</h5>
+          <p class="text-base text-muted">
+            To add a new language to your Egret Angular application, follow these steps:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Step 1: Create a New Translation File</h6>
+            <p class="mt-2">Create a new JSON file in the <code>src/assets/i18n</code> directory with the language code as the filename (e.g., <code>fr.json</code> for French).</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-json">// fr.json
+{
+  "DASHBOARD": "Tableau de bord",
+  "APPS": "Applications",
+  "INBOX": "Boîte de réception",
+  "CHAT": "Chat",
+  "CALENDAR": "Calendrier",
+  // ... Add translations for all keys
+}</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Step 2: Update Available Languages</h6>
+            <p class="mt-2">Update the <code>availableLangs</code> array in the header components:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">public availableLangs = [{
+  name: 'EN',
+  code: 'en',
+  flag: 'us'
+}, {
+  name: 'ES',
+  code: 'es',
+  flag: 'es'
+}, {
+  name: 'FR',
+  code: 'fr',
+  flag: 'fr'
+}];</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Step 3: Ensure All Keys are Translated</h6>
+            <p class="mt-2">Make sure that all translation keys used in your application are present in the new translation file. Missing keys will fall back to the default language.</p>
+          </div>
+        </div>
+
+        <!-- TRANSLATION PARAMETERS -->
+        <div>
+          <h5 class="font-semibold mt-7">Translation Parameters</h5>
+          <p class="text-base text-muted">
+            For dynamic content, you can use parameters in your translations:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Defining Parameterized Translations</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-json">// en.json
+{
+  "WELCOME": "Welcome, {{name}}!"
+}</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Using Parameters in Templates</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-html">&lt;span&gt;{{ "WELCOME" | translate:{ name: userName } }}&lt;/span&gt;</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Using Parameters in Components</h6>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">this.translate.get('WELCOME', { name: this.userName }).subscribe((res: string) => {
+  console.log(res); // Outputs: "Welcome, John!" (if userName is "John")
+});</code></pre>
+          </div>
+        </div>
+
+        <!-- BEST PRACTICES -->
+        <div>
+          <h5 class="font-semibold mt-7">Best Practices</h5>
+          <p class="text-base text-muted">
+            Follow these best practices to effectively use translations in your Egret Angular application:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Translation Guidelines</h6>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li>Use uppercase keys for translation strings (e.g., <code>DASHBOARD</code>, <code>SETTINGS</code>).</li>
+              <li>Keep translation keys consistent across your application.</li>
+              <li>Use consistent capitalization in your translations (all caps for keys that need translation).</li>
+              <li>Consider using nested objects for complex translations or translations with parameters.</li>
+              <li>Ensure all user-facing text is translatable, including error messages, tooltips, and button labels.</li>
+              <li>Test your application with all supported languages to ensure proper display and layout.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ADDITIONAL RESOURCES -->
+        <div>
+          <h5 class="font-semibold mt-7">Additional Resources</h5>
+          <p class="text-base text-muted">
+            For more information on using ngx-translate, refer to the official documentation:
+          </p>
+          <ul class="ml-5 mt-3 space-y-2 list-disc">
+            <li><a href="https://ngx-translate.org/getting-started/translation-files/" class="text-blue-600 hover:underline" target="_blank">Translation Files Guide</a></li>
+            <li><a href="https://ngx-translate.org/getting-started/translating-your-components/" class="text-blue-600 hover:underline" target="_blank">Translating Components Guide</a></li>
+          </ul>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="authentication.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg text-start hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">
+                  Authentication
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div>
+            <a href="theming.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded text-end hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Next page</p>
+                <p class="text-sm font-medium text-primary-darker">Theming</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

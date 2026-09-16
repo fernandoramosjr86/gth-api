@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: gth-api
+  threads:
+    virtual:
+      enabled: ${SPRING_THREADS_VIRTUAL_ENABLED:false}
+  main:
+    keep-alive: ${SPRING_MAIN_KEEP_ALIVE:true}
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/gth_db}
+    username: ${DB_USERNAME:gth_user}
+    password: ${DB_PASSWORD:gth_pass}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

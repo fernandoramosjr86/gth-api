@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE DEVICE -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/Egret-light-version.png"
+              alt="Egret-logo"
+              class="w-4"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN PAGE CONTENT -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <p class="font-medium">Folder Structure</p>
+
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Folder structure</h5>
+          <p class="italic text-muted">
+            Finding what you need is made simpler by a clear and organized folder
+            structure. The folder structure can be found in the Egret Angular project
+            directory.
+          </p>
+
+          <ul class="ml-5 space-y-6 list-disc list-outside">
+            <li>
+              <span
+                class="px-2 py-1 rounded bg-slate-200/60 text-primary-darker"
+                >src/</span
+              >
+              : Contains all source code for the application.
+            </li>
+            <li>
+              <span
+                class="px-2 py-1 rounded bg-slate-200/60 text-primary-darker"
+              >
+                src/app/
+              </span>
+              : Main application code including components, modules, and routing.
+            </li>
+            <li>
+              <span
+                class="px-2 py-1 rounded bg-slate-200/60 text-primary-darker"
+              >
+                src/app/shared/
+              </span>
+              : Contains reusable components, services, directives, and other shared resources used throughout the application.
+            </li>
+            <li>
+              <span
+                class="px-2 py-1 rounded bg-slate-200/60 text-primary-darker"
+              >
+                src/app/views/
+              </span>
+              : Feature modules and components organized by functionality (dashboard, sessions, forms, etc.).
+            </li>
+            <li>
+              <span
+                class="px-2 py-1 rounded bg-slate-200/60 text-primary-darker"
+              >
+                src/assets/
+              </span>
+              : Static assets like images, fonts, and global styles.
+            </li>
+            <li>
+              <span
+                class="px-2 py-1 rounded bg-slate-200/60 text-primary-darker"
+              >
+                src/environments/
+              </span>
+              : Environment-specific configuration files for development and production.
+            </li>
+          </ul>
+
+          <div class="mt-8">
+            <h5 class="font-semibold">Detailed Folder Structure</h5>
+            <p class="italic text-muted mb-4">
+              Below is a more detailed breakdown of the Egret Angular project structure:
+            </p>
+
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto"><code>egret-angular/
+├─ dist/               # Compiled output
+├─ egret-doc/          # Documentation files
+├─ node_modules/       # Dependencies
+├─ src/                # Source files
+│  ├─ app/             # Application code
+│  │  ├─ shared/       # Shared resources
+│  │  │  ├─ animations/     # Custom animations
+│  │  │  ├─ components/     # Reusable components
+│  │  │  ├─ config/         # Configuration files
+│  │  │  ├─ directives/     # Custom directives
+│  │  │  ├─ guards/         # Route guards
+│  │  │  ├─ helpers/        # Helper functions
+│  │  │  ├─ inmemory-db/    # Mock data
+│  │  │  ├─ interceptors/   # HTTP interceptors
+│  │  │  ├─ models/         # Data models/interfaces
+│  │  │  ├─ pipes/          # Custom pipes
+│  │  │  ├─ search/         # Search functionality
+│  │  │  ├─ services/       # Shared services
+│  │  │  └─ utils/          # Utility functions
+│  │  │
+│  │  ├─ views/        # Feature modules
+│  │  │  ├─ dashboard/      # Dashboard components
+│  │  │  ├─ sessions/       # Auth-related components
+│  │  │  ├─ forms/          # Form examples
+│  │  │  ├─ tables/         # Table examples
+│  │  │  ├─ charts/         # Chart examples
+│  │  │  ├─ app-calendar/   # Calendar feature
+│  │  │  ├─ app-chats/      # Chat feature
+│  │  │  ├─ app-inbox/      # Inbox feature
+│  │  │  ├─ cruds/          # CRUD examples
+│  │  │  ├─ invoice/        # Invoice feature
+│  │  │  ├─ profile/        # User profile
+│  │  │  ├─ shop/           # E-commerce components
+│  │  │  └─ others/         # Other components
+│  │  │
+│  │  ├─ app.component.ts   # Root component
+│  │  ├─ app.module.ts      # Root module
+│  │  └─ app.routing.ts     # Root routing
+│  │
+│  ├─ assets/          # Static assets
+│  │  ├─ images/       # Image files
+│  │  ├─ fonts/        # Font files
+│  │  ├─ styles/       # Global styles
+│  │  │  └─ scss/      # SCSS style files
+│  │  └─ data/         # Static data files
+│  │
+│  ├─ environments/    # Environment configurations
+│  ├─ config.ts        # App configuration
+│  ├─ main.ts          # Application entry point
+│  ├─ index.html       # Main HTML file
+│  └─ styles.scss      # Global styles
+│
+├─ angular.json        # Angular CLI configuration
+├─ package.json        # Dependencies and scripts
+├─ tailwind.config.js  # Tailwind CSS configuration
+├─ tsconfig.json       # TypeScript configuration
+└─ README.md           # Project documentation</code></pre>
+          </div>
+
+          <div class="mt-8">
+            <h5 class="font-semibold">Key Directories Explained</h5>
+            
+            <div class="mt-4">
+              <h6 class="font-medium">src/app/shared/</h6>
+              <p class="mt-2">
+                The shared directory contains reusable components and services that are used throughout the application:
+              </p>
+              <ul class="ml-5 mt-2 space-y-2 list-disc">
+                <li><strong>components/</strong>: Reusable UI components like buttons, cards, and dialogs</li>
+                <li><strong>services/</strong>: Common services for authentication, navigation, and data management</li>
+                <li><strong>directives/</strong>: Custom Angular directives</li>
+                <li><strong>pipes/</strong>: Custom Angular pipes for data transformation</li>
+                <li><strong>models/</strong>: TypeScript interfaces and classes for data models</li>
+              </ul>
+            </div>
+            
+            <div class="mt-6">
+              <h6 class="font-medium">src/app/views/</h6>
+              <p class="mt-2">
+                The views directory contains feature modules organized by functionality:
+              </p>
+              <ul class="ml-5 mt-2 space-y-2 list-disc">
+                <li><strong>dashboard/</strong>: Dashboard components and analytics</li>
+                <li><strong>sessions/</strong>: Authentication-related components (login, signup, forgot password)</li>
+                <li><strong>forms/</strong>: Form examples and implementations</li>
+                <li><strong>tables/</strong>: Table components and examples</li>
+                <li><strong>charts/</strong>: Chart components using various charting libraries</li>
+                <li><strong>app-calendar/</strong>: Calendar implementation</li>
+                <li><strong>app-inbox/</strong>: Email inbox implementation</li>
+              </ul>
+            </div>
+            
+            <div class="mt-6">
+              <h6 class="font-medium">src/assets/</h6>
+              <p class="mt-2">
+                The assets directory contains static files used throughout the application:
+              </p>
+              <ul class="ml-5 mt-2 space-y-2 list-disc">
+                <li><strong>images/</strong>: Image files used in the application</li>
+                <li><strong>fonts/</strong>: Custom font files</li>
+                <li><strong>styles/</strong>: Global SCSS files and variables</li>
+                <li><strong>data/</strong>: Static JSON data files</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="index.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg text-start hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">
+                  Quick Start
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div>
+            <a href="layout.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg text-end hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Next page</p>
+                <p class="text-sm font-medium text-primary-darker">Layout</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ALL THE SCRIPTS -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

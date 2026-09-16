@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE SCREEN -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/Egret-light-version.png"
+              alt="Egret-logo"
+              class="w-4"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN PAGE CONTENT -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <h5 class="font-medium">Navigation</h5>
+
+        <!-- NAVIGATION OVERVIEW -->
+        <div>
+          <h5 class="font-semibold mt-7">Navigation Overview</h5>
+          <p class="text-base text-muted">
+            Egret Angular provides a flexible navigation system that can be configured for different layouts and user experiences. The navigation system consists of a centralized <code>NavigationService</code> that manages navigation items, and various components that render these items in different layouts.
+          </p>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Navigation Components</h6>
+            <p class="mt-2">Egret's navigation system includes several components:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>Vertical Navigation</strong>: Sidebar navigation for desktop and tablet views</li>
+              <li><strong>Horizontal Navigation</strong>: Top navbar navigation for desktop views</li>
+              <li><strong>Mobile Navigation</strong>: Responsive navigation for mobile devices</li>
+              <li><strong>Icon Navigation</strong>: Compact icon-only navigation option</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- NAVIGATION SERVICE -->
+        <div>
+          <h5 class="font-semibold mt-7">Navigation Service</h5>
+          <p class="text-base text-muted">
+            The <code>NavigationService</code> is the core service that manages all navigation items in the application. It provides a reactive interface using RxJS to publish navigation changes to all components that subscribe to it.
+          </p>
+
+          <div class="mt-8">
+            <h6 class="font-bold">Navigation Types</h6>
+            <p class="mt-2">Egret supports three types of navigation menus that can be switched at runtime:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>Icon Menu</strong>: <strong>Default</strong> menu with icons and text</li>
+              <li><strong>Separator Menu</strong>: Menu with section separators</li>
+              <li><strong>Plain Menu</strong>: Basic menu without special formatting</li>
+            </ul>
+            <p class="mt-4">The navigation service maintains separate arrays for each menu type and publishes the active menu through an Observable:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In NavigationService
+iconMenu: IMenuItem[] = [ ... ];      // Default menu items
+separatorMenu: IMenuItem[] = [ ... ]; // Menu with separators
+plainMenu: IMenuItem[] = [ ... ];     // Plain menu items
+
+// Observable that components subscribe to
+menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
+menuItems$ = this.menuItems.asObservable();</code></pre>
+          </div>
+        </div>
+
+        <!-- CONFIGURING NAVIGATION -->
+        <div>
+          <h5 class="font-semibold mt-7">Configuring Navigation</h5>
+          <p class="text-base text-muted">
+            To configure the navigation in your Egret application, you can modify the menu arrays in the <code>NavigationService</code>.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Defining Navigation Items</h6>
+            <p class="mt-2">Here's an example of how to define navigation items:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// Example of defining navigation items
+iconMenu: IMenuItem[] = [
+  {
+    name: 'DASHBOARD',
+    type: 'dropDown',
+    icon: 'dashboard',
+    sub: [
+      { name: 'Analytics', state: 'dashboard/analytics' },
+      { name: 'Learning Management', state: 'dashboard/learning-management' }
+    ]
+  },
+  {
+    name: 'INBOX',
+    type: 'link',
+    icon: 'inbox',
+    state: 'inbox',
+    badges: [{ color: 'primary', value: '4' }]
+  },
+  {
+    type: 'separator',
+    name: 'Custom Components'
+  },
+  {
+    name: 'CALENDAR',
+    type: 'link',
+    icon: 'date_range',
+    state: 'calendar'
+  },
+  {
+    name: 'External Link',
+    type: 'extLink',
+    icon: 'launch',
+    state: 'https://example.com'
+  }
+];</code></pre>
+          </div>
+
+          <div class="mt-8">
+            <h6 class="font-medium">Navigation Item Types</h6>
+            <p class="mt-2">Egret supports several types of navigation items:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>link</strong>: A simple link that navigates to a route</li>
+              <li><strong>dropDown</strong>: A dropdown menu that contains sub-items</li>
+              <li><strong>icon</strong>: An icon-only item (used in the icon menu)</li>
+              <li><strong>separator</strong>: A section separator with a title</li>
+              <li><strong>extLink</strong>: An external link that opens in a new tab</li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <h6 class="font-medium">Adding Badges</h6>
+            <p class="mt-2">You can add badges to navigation items to show notifications or status indicators:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">{
+  name: 'INBOX',
+  type: 'link',
+  icon: 'inbox',
+  state: 'inbox',
+  badges: [
+    { color: 'primary', value: '4' }
+  ]
+}</code></pre>
+            <p class="mt-2">Badges can use Material theme colors (primary, accent, warn) or custom hex color codes.</p>
+          </div>
+
+          <div class="mt-8">
+            <h6 class="font-medium">Multi-level Navigation</h6>
+            <p class="mt-2">Egret supports multi-level navigation with nested dropdowns. Here's an example of a three-level deep menu:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">{
+  name: 'Material Kits',
+  type: 'dropDown',
+  icon: 'favorite',
+  sub: [
+    {
+      name: 'Form controls',
+      type: 'dropDown',
+      sub: [
+        { name: 'Autocomplete', state: 'material/autocomplete' },
+        { name: 'Checkbox', state: 'material/checkbox' }
+      ]
+    }
+  ]
+}</code></pre>
+            <p class="mt-2">The navigation components automatically handle rendering of nested levels with proper indentation and animations.</p>
+          </div>
+        </div>
+
+        <!-- NAVIGATION COMPONENTS -->
+        <div>
+          <h5 class="font-semibold mt-7">Navigation Components</h5>
+          <p class="text-base text-muted">
+            Egret includes several components that render the navigation items based on the current layout configuration.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Sidenav Component</h6>
+            <p class="mt-2">The <code>SidenavComponent</code> renders vertical navigation in the sidebar. It subscribes to the navigation service and automatically updates when the navigation items change.</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In a layout component
+import { NavigationService } from 'app/shared/services/navigation.service';
+
+@Component({...})
+export class VerticalLayoutComponent {
+  constructor(
+    private navService: NavigationService
+  ) {}
+}</code></pre>
+            <p class="mt-4">The sidenav template uses recursive rendering to handle multi-level navigation:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-html">&lt;ng-template #menuTemplate let-menuItems="menuItems"&gt;
+  &lt;ul appDropdown class="sidenav"&gt;
+    &lt;li *ngFor="let item of menuItems" appDropdownLink&gt;
+      &lt;!-- Item rendering logic --&gt;
+      
+      &lt;!-- Recursive call for sub-items --&gt;
+      &lt;div *ngIf="item.type === 'dropDown'"&gt;
+        &lt;ng-container *ngTemplateOutlet="menuTemplate; context: {menuItems: item.sub}"&gt;&lt;/ng-container&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ng-template&gt;</code></pre>
+          </div>
+
+          <div class="mt-8">
+            <h6 class="font-medium">Header Top Component</h6>
+            <p class="mt-2">The <code>HeaderTopComponent</code> renders horizontal navigation in the top navbar. It also subscribes to the navigation service but limits the number of top-level items and moves excess items to a "More" dropdown.</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In HeaderTopComponent
+menuItemSub: Subscription;
+
+ngOnInit() {
+  this.menuItemSub = this.navService.menuItems$
+  .subscribe(res => {
+    res = res.filter(item => item.type !== 'icon' && item.type !== 'separator');
+    let limit = 4
+    let mainItems:any[] = res.slice(0, limit)
+    if(res.length <= limit) {
+      return this.menuItems = mainItems
+    }
+    let subItems:any[] = res.slice(limit, res.length - 1)
+    mainItems.push({
+      name: 'More',
+      type: 'dropDown',
+      tooltip: 'More',
+      icon: 'more_horiz',
+      sub: subItems
+    })
+    this.menuItems = mainItems
+  })
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- SWITCHING NAVIGATION TYPES -->
+        <div>
+          <h5 class="font-semibold mt-7">Switching Navigation Types</h5>
+          <p class="text-base text-muted">
+            You can dynamically switch between navigation types using the <code>publishNavigationChange</code> method.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Changing Navigation Type</h6>
+            <p class="mt-2">Here's how to switch between different navigation types:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// Switch to separator menu
+navigationService.publishNavigationChange('separator-menu');
+
+// Switch to icon menu
+navigationService.publishNavigationChange('icon-menu');
+
+// Switch to plain menu
+navigationService.publishNavigationChange('plain-menu');</code></pre>
+            <p class="mt-2">This is useful for providing different navigation experiences based on user preferences or application context.</p>
+          </div>
+        </div>
+
+        <!-- RESPONSIVE BEHAVIOR -->
+        <div>
+          <h5 class="font-semibold mt-7">Responsive Behavior</h5>
+          <p class="text-base text-muted">
+            Egret's navigation system is fully responsive and adapts to different screen sizes.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Adaptive Navigation</h6>
+            <p class="mt-2">The navigation components adjust based on screen size:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li>On desktop, both vertical (sidebar) and horizontal (top navbar) navigation can be displayed</li>
+              <li>On tablets, the sidebar can be collapsed to show only icons</li>
+              <li>On mobile devices, the sidebar is hidden by default and can be toggled with a menu button</li>
+            </ul>
+            <p class="mt-2">The responsive behavior is controlled by the <code>LayoutService</code> which works in conjunction with the navigation components.</p>
+          </div>
+        </div>
+
+        <!-- BEST PRACTICES -->
+        <div>
+          <h5 class="font-semibold mt-7">Best Practices</h5>
+          <p class="text-base text-muted">
+            When configuring navigation in Egret, follow these best practices:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Navigation Guidelines</h6>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li>Keep the navigation structure simple and intuitive</li>
+              <li>Limit the number of top-level items to improve usability</li>
+              <li>Use consistent icons and naming conventions</li>
+              <li>Group related items under logical categories</li>
+              <li>Use separators to organize large navigation menus</li>
+              <li>Avoid deep nesting (more than 3 levels) as it can confuse users</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="layout.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg text-start hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">
+                  Layout
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div>
+            <a href="breadcrumb.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded text-end hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Next page</p>
+                <p class="text-sm font-medium text-primary-darker">Breadcrumb</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ALL THE SCRIPTS -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

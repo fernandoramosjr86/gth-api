@@ -1,0 +1,11 @@
+{
+  "name": "egret-documentation",
+  "version": "19.0.0",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./src/assets/css/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./src/assets/css/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.8"
+  }
+}

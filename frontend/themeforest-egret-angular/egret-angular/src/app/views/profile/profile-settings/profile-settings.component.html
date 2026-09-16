@@ -1,0 +1,115 @@
+<mat-card class="p-0 shadow-md">
+  <mat-tab-group class="profile-tab-group">
+    <mat-tab label="Account Settings">
+      <mat-card-content class="px-6 pt-6 pb-4">
+          <form>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input
+                matInput
+                name="name"
+                placeholder="Your full name">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Job Title</mat-label>
+                <input
+                matInput
+                name="title"
+                placeholder="Your position">
+                <mat-icon matSuffix>work</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input
+                matInput
+                name="email"
+                placeholder="Your email address">
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+              <mat-form-field class="w-full" appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input
+                matInput
+                name="phone"
+                placeholder="Your phone number">
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+            </div>
+            <mat-form-field class="w-full" appearance="fill">
+              <mat-label>Address</mat-label>
+              <input
+              matInput
+              name="address"
+              placeholder="Your address">
+              <mat-icon matSuffix>location_on</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="w-full" appearance="fill">
+              <mat-label>Website</mat-label>
+              <input
+              matInput
+              name="website"
+              placeholder="Your website URL">
+              <mat-icon matSuffix>language</mat-icon>
+            </mat-form-field>
+            <div class="flex justify-end mt-6">
+              <button mat-raised-button color="primary" class="px-6">Save Changes</button>
+            </div>
+          </form>
+      </mat-card-content>
+    </mat-tab>
+    <mat-tab label="Privacy Settings">
+      <mat-card-content class="px-6 pt-6 pb-4">
+        <div class="mb-6">
+          <h5 class="!text-sm font-semibold mb-2">Notification Preferences</h5>
+          <div class="space-y-3 ml-1">
+            <div class="flex items-start">
+              <mat-checkbox color="primary" class="leading-tight"> 
+                <span class="ml-1 text-slate-700">Get weekly news in your email.</span>
+              </mat-checkbox>
+            </div>
+            <div class="flex items-start">
+              <mat-checkbox color="primary" class="leading-tight"> 
+                <span class="ml-1 text-slate-700">Get notification when someone follows you.</span>
+              </mat-checkbox>
+            </div>
+            <div class="flex items-start">
+              <mat-checkbox color="primary" class="leading-tight"> 
+                <span class="ml-1 text-slate-700">Get email when someone follows you.</span>
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-6">
+          <h5 class="!text-sm font-semibold mb-2">Theme Preferences</h5>
+          <p class="text-slate-600 mb-3">Choose your admin panel color scheme.</p>
+          <mat-radio-group class="flex flex-col space-y-2 ml-1">
+            <mat-radio-button value="indigo" color="primary" class="text-slate-700">
+              <span class="ml-1">Indigo</span>
+              <span class="inline-block w-4 h-4 rounded-full bg-indigo-500 ml-2"></span>
+            </mat-radio-button>
+            <mat-radio-button value="blue" color="primary" class="text-slate-700">
+              <span class="ml-1">Blue</span>
+              <span class="inline-block w-4 h-4 rounded-full bg-blue-500 ml-2"></span>
+            </mat-radio-button>
+            <mat-radio-button value="pink" color="primary" class="text-slate-700">
+              <span class="ml-1">Pink</span>
+              <span class="inline-block w-4 h-4 rounded-full bg-pink-500 ml-2"></span>
+            </mat-radio-button>
+            <mat-radio-button value="purple" color="primary" class="text-slate-700">
+              <span class="ml-1">Purple</span>
+              <span class="inline-block w-4 h-4 rounded-full bg-purple-500 ml-2"></span>
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="flex justify-end mt-4">
+          <button mat-raised-button color="primary" class="px-6">Save Preferences</button>
+        </div>
+      </mat-card-content>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

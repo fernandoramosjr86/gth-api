@@ -1,0 +1,281 @@
+.pessoas-page {
+  padding: 20px;
+}
+
+.page-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.page-header p {
+  color: rgba(0, 0, 0, 0.6);
+  margin: 4px 0 0;
+}
+
+.content-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(360px, 460px) minmax(0, 1fr);
+}
+
+.form-card,
+.table-card {
+  border-radius: 8px;
+}
+
+mat-card-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 16px 4px;
+}
+
+.person-form {
+  display: grid;
+  gap: 0 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.person-form mat-form-field:first-child,
+.person-form mat-form-field:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.person-form mat-form-field {
+  min-width: 0;
+}
+
+.person-form .mat-mdc-form-field,
+.search-row .mat-mdc-form-field {
+  --mat-form-field-container-height: 48px;
+  --mat-form-field-filled-container-color: #f8fafc;
+  --mat-form-field-filled-focus-active-indicator-color: #1a237e;
+  --mat-form-field-filled-hover-active-indicator-color: #1a237e;
+}
+
+.person-form ::ng-deep .mat-mdc-text-field-wrapper,
+.search-row ::ng-deep .mat-mdc-text-field-wrapper {
+  border: 1px solid rgba(26, 35, 126, 0.14);
+  border-radius: 6px;
+}
+
+.person-form ::ng-deep .mdc-line-ripple,
+.search-row ::ng-deep .mdc-line-ripple {
+  display: none;
+}
+
+.actions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+  padding: 0 16px 14px;
+}
+
+.actions button,
+.search-row button,
+.page-header button {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+  min-height: 36px;
+}
+
+.primary-actions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+}
+
+.primary-actions button,
+.clear-action {
+  justify-content: center;
+  width: 100%;
+}
+
+.result {
+  align-items: center;
+  background: #e8f5e9;
+  border-radius: 6px;
+  color: #1b5e20;
+  display: flex;
+  gap: 8px;
+  margin: 0 16px 16px;
+  padding: 12px;
+}
+
+.search-row {
+  align-items: center;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(260px, 420px) minmax(140px, 180px);
+  margin-bottom: 12px;
+}
+
+.search-row mat-form-field {
+  margin-bottom: 0;
+}
+
+.search-row button {
+  justify-content: center;
+  width: 100%;
+}
+
+.loading-bar {
+  align-items: center;
+  display: flex;
+  height: 44px;
+  justify-content: center;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  min-width: 760px;
+  width: 100%;
+}
+
+th.mat-mdc-header-cell {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+td.mat-mdc-cell,
+th.mat-mdc-header-cell {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+tr.mat-mdc-row {
+  cursor: pointer;
+}
+
+tr.mat-mdc-row:hover {
+  background: rgba(63, 81, 181, 0.04);
+}
+
+.selected-row {
+  background: rgba(46, 125, 50, 0.08);
+}
+
+.row-action {
+  color: #1a237e;
+}
+
+.row-action-selected {
+  color: #2e7d32;
+}
+
+td.mat-mdc-cell:last-child,
+th.mat-mdc-header-cell:last-child {
+  min-width: 104px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.empty-state {
+  color: rgba(0, 0, 0, 0.54);
+  padding: 28px;
+  text-align: center;
+}
+
+mat-paginator {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 8px -16px -16px;
+}
+
+.peso-dialog {
+  padding: 4px 4px 0;
+}
+
+.peso-dialog-header {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+}
+
+.peso-dialog-header h2 {
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.peso-dialog-header p {
+  color: rgba(0, 0, 0, 0.56);
+  margin: 2px 0 0;
+}
+
+.peso-dialog-icon {
+  align-items: center;
+  background: #e8f5e9;
+  border-radius: 8px;
+  color: #2e7d32;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.peso-dialog-content {
+  padding-top: 18px;
+}
+
+.peso-dialog-result {
+  background: linear-gradient(135deg, #f1f8e9, #e3f2fd);
+  border: 1px solid rgba(46, 125, 50, 0.16);
+  border-radius: 8px;
+  color: #1b5e20;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 18px;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .person-form {
+    grid-template-columns: 1fr;
+  }
+
+  .person-form mat-form-field:first-child,
+  .person-form mat-form-field:nth-child(3) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .pessoas-page {
+    padding: 16px;
+  }
+
+  .page-header,
+  .search-row {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+  }
+
+  .primary-actions {
+    grid-template-columns: 1fr;
+  }
+}

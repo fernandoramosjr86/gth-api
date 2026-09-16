@@ -1,0 +1,25 @@
+<div class="flex min-h-screen bg-card relative overflow-hidden screen-bottom-left-gradient screen-bottom-right-gradient">
+  <!-- Container with gradient effects applied via SCSS -->
+  <div class="container flex min-h-screen mx-auto relative z-10" [@animate]="{value:'*',params:{y:'40px',opacity:'0',delay:'100ms', duration: '400ms'}}">
+    <div class="flex-1 flex flex-col items-center justify-center p-8">
+      
+      <div class="w-full max-w-md">
+        <div class="flex flex-col items-center mb-4">
+          <img src="assets/images/illustrations/404.svg" alt="404 Error Illustration" class="mb-8">
+          <h1 class="text-2xl font-semibold mb-2">Página não encontrada</h1>
+          <p class="text-secondary text-center mb-6">Não encontramos a tela solicitada. Você pode voltar para a tela principal e continuar o cadastro de pessoas.</p>
+        </div>
+
+        <div class="flex justify-center">
+          <button 
+            mat-flat-button 
+            color="primary" 
+            class="py-2" 
+            [routerLink]="['/pessoas']">
+            Voltar para pessoas
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

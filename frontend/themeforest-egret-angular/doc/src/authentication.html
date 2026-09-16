@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE SCREEN -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/Egret-light-version.png"
+              alt="Egret-logo"
+              class="w-4"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN PAGE CONTENT -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <h5 class="font-medium">Authentication & Access Control</h5>
+
+        <!-- AUTHENTICATION OVERVIEW -->
+        <div>
+          <h5 class="font-semibold mt-7">Authentication Overview</h5>
+          <p class="text-base text-muted">
+            Egret Angular implements a JWT (JSON Web Token) based authentication system. This provides a secure way to authenticate users and protect routes in your application. The authentication system is pre-configured and ready to use in your Egret Angular application.
+          </p>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Authentication Features</h6>
+            <p class="mt-2">Egret's authentication system includes the following features:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>JWT Authentication</strong>: Secure token-based authentication</li>
+              <li><strong>Route Protection</strong>: Guards to protect routes from unauthorized access</li>
+              <li><strong>Role-Based Access Control</strong>: Different access levels based on user roles</li>
+              <li><strong>Persistent Sessions</strong>: User sessions are maintained across page refreshes</li>
+              <li><strong>Redirect After Login</strong>: Users are redirected to their intended destination after login</li>
+            </ul>
+          </div>
+        </div>
+        <!-- youtube video -->
+        <div class="mt-7 pt-4">
+          <h5 class="font-semibold">Video Introduction</h5>
+          <div class="mt-4">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-Y6DoRujvAk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- AUTHENTICATION FLOW -->
+        <div>
+          <h5 class="font-semibold mt-7">Authentication Flow</h5>
+          <p class="text-base text-muted">
+            The authentication flow in Egret Angular follows these steps:
+          </p>
+
+          <div class="mt-4">
+            <ol class="ml-5 mt-3 space-y-2 list-decimal">
+              <li>User enters credentials on the login page</li>
+              <li>The application sends a request to the authentication server</li>
+              <li>Upon successful authentication, the server returns a JWT token and user information</li>
+              <li>The application stores the token and user information in local storage</li>
+              <li>The token is included in subsequent API requests via an HTTP interceptor</li>
+              <li>Protected routes check for a valid token before allowing access</li>
+              <li>When the user logs out, the token is removed from local storage</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- AUTHENTICATION SERVICE -->
+        <div>
+          <h5 class="font-semibold mt-7">Authentication Service</h5>
+          <p class="text-base text-muted">
+            The <code>JwtAuthService</code> in <code>src/app/shared/services/auth/jwt-auth.service.ts</code> handles all authentication-related functionality:
+          </p>
+
+          <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// Key methods in JwtAuthService
+import { Injectable } from "@angular/core";
+import { LocalStoreService } from "../local-store.service";
+import { HttpClient } from "@angular/common/http";
+import { Router, ActivatedRoute } from "@angular/router";
+import { User } from "../../models/user.model";
+import { BehaviorSubject } from "rxjs";
+
+@Injectable({
+  providedIn: "root",
+})
+export class JwtAuthService {
+  // Authentication methods
+  public signin(username, password) {
+    // Handles user login and stores JWT token
+  }
+
+  public checkTokenIsValid() {
+    // Verifies if the current token is valid
+  }
+
+  public signout() {
+    // Handles user logout
+  }
+
+  isLoggedIn(): Boolean {
+    // Checks if user is currently logged in
+  }
+
+  getJwtToken() {
+    // Retrieves JWT token from storage
+  }
+
+  getUser() {
+    // Retrieves user information from storage
+  }
+
+  setUserAndToken(token: String, user: User, isAuthenticated: Boolean) {
+    // Stores user and token information
+  }
+}</code></pre>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Key Authentication Methods</h6>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>signin(username, password)</strong>: Authenticates a user with the provided credentials</li>
+              <li><strong>signout()</strong>: Logs out the current user and redirects to the login page</li>
+              <li><strong>isLoggedIn()</strong>: Checks if a user is currently logged in</li>
+              <li><strong>checkTokenIsValid()</strong>: Verifies if the current token is still valid</li>
+              <li><strong>getUser()</strong>: Retrieves the current user information</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ROUTE PROTECTION WITH GUARDS -->
+        <div>
+          <h5 class="font-semibold mt-7">Route Protection with Guards</h5>
+          <p class="text-base text-muted">
+            Egret Angular uses Angular route guards to protect routes from unauthorized access. Two main guards are provided:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">AuthGuard</h6>
+            <p class="mt-2">The <code>AuthGuard</code> in <code>src/app/shared/guards/auth.guard.ts</code> protects routes from unauthenticated users:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">import { Injectable } from "@angular/core";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
+import { JwtAuthService } from "../services/auth/jwt-auth.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  constructor(private router: Router, private jwtAuth: JwtAuthService) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.jwtAuth.isLoggedIn()) {
+      return true;
+    } else {
+      this.router.navigate(["/sessions/signin"], {
+        queryParams: {
+          return: state.url
+        }
+      });
+      return false;
+    }
+  }
+}</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">UserRoleGuard</h6>
+            <p class="mt-2">The <code>UserRoleGuard</code> in <code>src/app/shared/guards/user-role.guard.ts</code> restricts access based on user roles:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">import { Injectable } from "@angular/core";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
+import { JwtAuthService } from "../services/auth/jwt-auth.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+
+@Injectable()
+export class UserRoleGuard implements CanActivate {
+  constructor(
+    private router: Router, 
+    private jwtAuth: JwtAuthService, 
+    private snack: MatSnackBar
+  ) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    var user = this.jwtAuth.getUser();
+
+    if (
+      user &&
+      route.data &&
+      route.data.roles &&
+      route.data.roles.includes(user.role)
+    ) {
+      return true;
+    } else {
+      this.snack.open('You do not have access to this page!', 'OK');
+      return false;
+    }
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- IMPLEMENTING ROUTE PROTECTION -->
+        <div>
+          <h5 class="font-semibold mt-7">Implementing Route Protection</h5>
+          <p class="text-base text-muted">
+            To protect routes in your application, you can use the guards in your routing configuration:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Using AuthGuard</h6>
+            <p class="mt-2">To protect routes from unauthenticated users, add the <code>AuthGuard</code> to the <code>canActivate</code> property:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In app.routing.ts
+{
+  path: '',
+  component: AdminLayoutComponent,
+  canActivate: [AuthGuard], // Requires authentication
+  children: [
+    {
+      path: 'dashboard',
+      loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
+      data: { title: 'Dashboard', breadcrumb: 'DASHBOARD'}
+    },
+    // Other routes...
+  ]
+}</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Using UserRoleGuard</h6>
+            <p class="mt-2">To restrict access based on user roles, add the <code>UserRoleGuard</code> to the <code>canActivate</code> property and specify the required roles in the <code>data</code> property:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In dashboard.routing.ts
+{
+  path: 'learning-management',
+  component: LearningManagementComponent,
+  canActivate: [UserRoleGuard],
+  data: { 
+    title: 'Learning management', 
+    breadcrumb: 'Learning management', 
+    role: config.authRoles.user // Only users with 'user' role or higher can access
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- ROLE-BASED ACCESS CONTROL -->
+        <div>
+          <h5 class="font-semibold mt-7">Role-Based Access Control</h5>
+          <p class="text-base text-muted">
+            Egret Angular implements a hierarchical role-based access control system. Roles are defined in <code>src/config.ts</code>:
+          </p>
+
+          <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In config.ts
+export const config = {
+  apiUrl: 'http://ui-lib-demo-api.herokuapp.com',
+  authRoles: {
+    sa: ['SA'], // Only Super Admin has access
+    admin: ['SA', 'Admin'], // Only SA & Admin has access
+    editor: ['SA', 'Admin', 'Editor'], // Only SA & Admin & Editor has access
+    user: ['SA', 'Admin', 'Editor', 'User'], // Only SA & Admin & Editor & User has access
+    guest: ['SA', 'Admin', 'Editor', 'User', 'Guest'] // Everyone has access
+  }
+}</code></pre>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Role Hierarchy</h6>
+            <p class="mt-2">The role hierarchy in Egret Angular is as follows (from highest to lowest):</p>
+            <ol class="ml-5 mt-3 space-y-2 list-decimal">
+              <li><strong>SA (Super Admin)</strong>: Has access to everything</li>
+              <li><strong>Admin</strong>: Has access to admin, editor, user, and guest routes</li>
+              <li><strong>Editor</strong>: Has access to editor, user, and guest routes</li>
+              <li><strong>User</strong>: Has access to user and guest routes</li>
+              <li><strong>Guest</strong>: Has access only to guest routes</li>
+            </ol>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Using Roles in Routes</h6>
+            <p class="mt-2">To restrict a route to specific roles, use the <code>role</code> property in the route data:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// Examples of role-based route protection
+{
+  path: 'admin-dashboard',
+  component: AdminDashboardComponent,
+  canActivate: [UserRoleGuard],
+  data: { title: 'Admin Dashboard', role: config.authRoles.admin } // Only admins and super admins
+},
+{
+  path: 'user-profile',
+  component: UserProfileComponent,
+  canActivate: [UserRoleGuard],
+  data: { title: 'User Profile', role: config.authRoles.user } // All authenticated users
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- CONDITIONAL RENDERING BASED ON ROLES -->
+        <div>
+          <h5 class="font-semibold mt-7">Conditional Rendering Based on Roles</h5>
+          <p class="text-base text-muted">
+            You can conditionally render UI elements based on the user's role:
+          </p>
+
+          <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-html">&lt;!-- In your component template --&gt;
+&lt;button mat-button *ngIf="isAdmin()"&gt;Admin Action&lt;/button&gt;
+&lt;button mat-button *ngIf="isEditor()"&gt;Editor Action&lt;/button&gt;</code></pre>
+
+          <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// In your component
+import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
+import { config } from 'config';
+
+export class MyComponent {
+  constructor(private jwtAuth: JwtAuthService) {}
+
+  isAdmin() {
+    const user = this.jwtAuth.getUser();
+    return user && config.authRoles.admin.includes(user.role);
+  }
+
+  isEditor() {
+    const user = this.jwtAuth.getUser();
+    return user && config.authRoles.editor.includes(user.role);
+  }
+}</code></pre>
+        </div>
+
+        <!-- AUTHENTICATION PAGES -->
+        <div>
+          <h5 class="font-semibold mt-7">Authentication Pages</h5>
+          <p class="text-base text-muted">
+            Egret Angular includes pre-built authentication pages:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Available Authentication Pages</h6>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>Sign In</strong>: <code>/sessions/signin</code></li>
+              <li><strong>Sign Up</strong>: <code>/sessions/signup</code></li>
+              <li><strong>Forgot Password</strong>: <code>/sessions/forgot-password</code></li>
+              <li><strong>Reset Password</strong>: <code>/sessions/reset-password</code></li>
+              <li><strong>404 Page</strong>: <code>/sessions/404</code></li>
+              <li><strong>Error Page</strong>: <code>/sessions/error</code></li>
+            </ul>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Customizing Authentication Pages</h6>
+            <p class="mt-2">You can customize the authentication pages by modifying the components in <code>src/app/views/sessions/</code>.</p>
+          </div>
+        </div>
+
+        <!-- INTEGRATING WITH BACKEND -->
+        <div>
+          <h5 class="font-semibold mt-7">Integrating with Backend</h5>
+          <p class="text-base text-muted">
+            Egret Angular is pre-configured to work with a JWT-based authentication backend. To integrate with your own backend:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Modifying the Authentication Service</h6>
+            <p class="mt-2">Update the <code>signin</code> and <code>checkTokenIsValid</code> methods in <code>JwtAuthService</code>:</p>
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// Replace the demo authentication with your API calls
+public signin(username, password) {
+  this.signingIn = true;
+  return this.http.post(`${environment.apiURL}/auth/login`, { username, password })
+    .pipe(
+      map((res: any) => {
+        this.setUserAndToken(res.token, res.user, !!res);
+        this.signingIn = false;
+        return res;
+      }),
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+}
+
+public checkTokenIsValid() {
+  return this.http.get(`${environment.apiURL}/auth/profile`)
+    .pipe(
+      map((profile: User) => {
+        this.setUserAndToken(this.getJwtToken(), profile, true);
+        return profile;
+      }),
+      catchError((error) => {
+        this.signout();
+        return of(error);
+      })
+    );
+}</code></pre>
+          </div>
+
+          <div class="mt-6">
+            <h6 class="font-medium">HTTP Interceptor for JWT</h6>
+            <p class="mt-2">Egret Angular includes an HTTP interceptor that automatically adds the JWT token to all API requests. The interceptor is defined in <code>src/app/shared/interceptors/token.interceptor.ts</code>.</p>
+          </div>
+        </div>
+
+        <!-- BEST PRACTICES -->
+        <div>
+          <h5 class="font-semibold mt-7">Best Practices</h5>
+          <p class="text-base text-muted">
+            Follow these best practices for authentication and access control in your Egret Angular application:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Authentication Guidelines</h6>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li>Always use HTTPS in production to protect authentication credentials</li>
+              <li>Implement token expiration and refresh mechanisms</li>
+              <li>Store sensitive user information only on the server, not in the JWT payload</li>
+              <li>Use both client-side and server-side validation for authentication</li>
+              <li>Implement proper error handling for authentication failures</li>
+              <li>Consider implementing two-factor authentication for sensitive applications</li>
+              <li>Always validate user permissions on the server side, not just in the client</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ADDITIONAL RESOURCES -->
+        <div>
+          <h5 class="font-semibold mt-7">Additional Resources</h5>
+          <p class="text-base text-muted">
+            For more information on authentication and access control in Angular applications:
+          </p>
+          <ul class="ml-5 mt-3 space-y-2 list-disc">
+            <li><a href="https://angular.io/guide/router#milestone-5-route-guards" class="text-blue-600 hover:underline" target="_blank">Angular Route Guards</a></li>
+            <li><a href="https://jwt.io/introduction" class="text-blue-600 hover:underline" target="_blank">Introduction to JSON Web Tokens</a></li>
+            <li><a href="https://angular.io/api/common/http/HttpInterceptor" class="text-blue-600 hover:underline" target="_blank">Angular HTTP Interceptors</a></li>
+          </ul>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="breadcrumb.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg text-start hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">
+                  Breadcrumb
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div>
+            <a href="translation.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded text-end hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Next page</p>
+                <p class="text-sm font-medium text-primary-darker">Translation</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

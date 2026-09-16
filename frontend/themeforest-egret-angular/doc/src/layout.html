@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE SCREEN -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/Egret-light-version.png"
+              alt="Egret-logo"
+              class="w-4"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN PAGE CONTENT -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <h5 class="font-medium">Layout</h5>
+
+        <!-- LAYOUT OVERVIEW -->
+        <div>
+          <h5 class="font-semibold mt-7">Layout Overview</h5>
+          <p class="text-base text-muted">
+            Egret provides a flexible layout system that can be easily configured to meet your application's needs. The layout system is built around the <code>LayoutService</code> which manages the layout configuration and provides reactive updates to all components.
+          </p>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Available Layout Types</h6>
+            <p class="mt-2">Egret offers several layout types that can be configured through the layout service:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>Vertical Layout</strong>: Traditional sidebar navigation with header on the side (default)</li>
+              <li><strong>Horizontal Layout</strong>: Top navigation with header at the top</li>
+              <li><strong>Auth Layout</strong>: Special layout for authentication pages</li>
+              <li><strong>Admin Layout</strong>: Base layout for admin pages with customizable components</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- LAYOUT SERVICE -->
+        <div>
+          <h5 class="font-semibold mt-7">Layout Service</h5>
+          <p class="text-base text-muted">
+            The <code>LayoutService</code> is the core service that manages the layout configuration in Egret. It provides a reactive way to change layout settings and applies them throughout the application.
+          </p>
+
+          <div class="mt-8">
+            <h6 class="font-bold">Set Default Layout Configuration</h6>
+            <p class="mt-2">You can set the default layout by modifying the <code>setAppLayout</code> method in <code>layout.service.ts</code>:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">// layout.service.ts
+setAppLayout() {
+  // ********** SET DEFAULT LAYOUT **********
+  let defaultLayout: ILayoutConf = {
+    navigationPos: 'side', // side, top
+    sidebarStyle: 'full', // full, compact, closed
+    sidebarCompactToggle: false, // if "sidebarStyle" is "compact" make it true
+    dir: 'ltr', // ltr, rtl
+    useBreadcrumb: true, 
+    topbarFixed: false,
+    sidebarColor: 'sidebar-dark', // sidebar-dark, sidebar-light
+    matTheme: 'egret-navy', // egret-navy, egret-navy-dark
+    breadcrumb: 'simple', // simple, title
+  };
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- CONFIGURING LAYOUTS -->
+        <div>
+          <div class="mt-4">
+            <h6 class="font-bold">Set Layout during Runtime</h6>
+            <p class="mt-2">Here's how to inject and use the layout service in a component:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">import { Component, OnInit } from '@angular/core';
+import { LayoutService } from 'app/shared/services/layout.service';
+
+@Component({
+  selector: 'app-my-component',
+  templateUrl: './my-component.html'
+})
+export class MyComponent implements OnInit {
+  constructor(private layoutService: LayoutService) {}
+
+  ngOnInit() {
+    // Subscribe to layout changes
+    this.layoutService.layoutConf$.subscribe(layoutConf => {
+      console.log('Current layout config:', layoutConf);
+    });
+  }
+
+  // Change to compact sidebar
+  setCompactSidebar() {
+    this.layoutService.publishLayoutChange({
+      sidebarStyle: 'compact'
+    });
+  }
+
+  // Change to horizontal navigation
+  setHorizontalLayout() {
+    this.layoutService.publishLayoutChange({
+      navigationPos: 'top'
+    });
+  }
+
+  // Toggle RTL mode
+  toggleRTL() {
+    this.layoutService.publishLayoutChange({
+      dir: 'rtl'
+    });
+  }
+}</code></pre>
+          </div>
+
+          <div class="mt-8">
+            <h6 class="font-bold">Common Layout Configurations</h6>
+            <p class="mt-2">Here are some common layout configurations you might want to use:</p>
+            
+            <div class="mt-4">
+              <h6 class="text-sm font-semibold">1. Changing Sidebar Style</h6>
+              <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-2"><code class="language-typescript">// Full sidebar (default)
+layoutService.publishLayoutChange({
+  sidebarStyle: 'full'
+});
+
+// Compact sidebar (icons only, expands on hover if sidebarCompactToggle is true)
+layoutService.publishLayoutChange({
+  sidebarStyle: 'compact',
+  sidebarCompactToggle: true
+});
+
+// Closed sidebar (completely hidden)
+layoutService.publishLayoutChange({
+  sidebarStyle: 'closed'
+});</code></pre>
+            </div>
+            
+            <div class="mt-6">
+              <h6 class="text-sm font-semibold">2. Changing Navigation Position</h6>
+              <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-2"><code class="language-typescript">// Side navigation (default)
+layoutService.publishLayoutChange({
+  navigationPos: 'side'
+});
+
+// Top navigation (horizontal menu)
+layoutService.publishLayoutChange({
+  navigationPos: 'top'
+});</code></pre>
+            </div>
+            
+            <div class="mt-6">
+              <h6 class="text-sm font-semibold">3. Changing Theme and Colors</h6>
+              <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-2"><code class="language-typescript">// Change material theme
+layoutService.publishLayoutChange({
+  matTheme: 'egret-navy-dark'
+});
+
+// Change sidebar color
+layoutService.publishLayoutChange({
+  sidebarColor: 'sidebar-light'
+});
+
+</code></pre>
+            </div>
+            
+            <div class="mt-6">
+              <h6 class="text-sm font-semibold">4. Toggling Fixed Elements</h6>
+              <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-2"><code class="language-typescript">// Fixed topbar
+layoutService.publishLayoutChange({
+  topbarFixed: true
+});
+
+// Fixed footer
+layoutService.publishLayoutChange({
+  footerFixed: true
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="folder-structure.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg text-start hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">
+                  Folder Structure
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div>
+            <a href="navigation.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded text-end hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Next page</p>
+                <p class="text-sm font-medium text-primary-darker">Navigation</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ALL THE SCRIPTS -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

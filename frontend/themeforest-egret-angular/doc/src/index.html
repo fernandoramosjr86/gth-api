@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- SIDEBAR FOR MOBILE SCREEN -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret-logo"
+              class="w-10"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN PAGE CONTENT -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <p class="font-medium">Quick Start</p>
+
+        <!-- INTRODUCTION -->
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Egret - Angular Admin Dashboard Template</h5>
+          <p class="italic text-muted">
+            Egret is a fully professional, minimal design admin dashboard template
+            built with Angular. It includes a comprehensive set of pages,
+            components, and ready-to-use applications, providing everything you
+            need to kickstart your web application development.
+          </p>
+        </div>
+
+        <!-- KEY FEATURES -->
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Key Features</h5>
+          <ul class="ml-5 space-y-3 list-disc list-outside">
+            <li>
+              Comprehensive Library of Pages and Components: Egret provides a
+              vast library of pre-designed pages and components to help you build
+              your application quickly and efficiently.
+            </li>
+            <li>
+              Pre-Built Applications: We've included a range of applications to
+              help you get started with your project quickly.
+            </li>
+            <li>
+              Streamlined Development: With Egret's carefully crafted components
+              and pages, you can focus on building your application without
+              worrying about building from scratch.
+            </li>
+          </ul>
+        </div>
+
+        <!-- QUICK START YOUTUBE VIDEO -->
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Quick Start</h5>
+          <p class="italic text-muted">
+            Watch our quick start video to learn how to get started with Egret.
+          </p>
+          <div class="mt-2">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/yF3v5vbTW1M?si=b4r1KkybBfZNA1nL"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        
+
+        <!-- REQUIREMENTS -->
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Requirements</h5>
+
+          <p>
+            Make sure that you have the last stable
+            <a
+              href="https://nodejs.org/en/download/package-manager"
+              class="text-primary visited:text-purple-600 hover:underline"
+            >
+              Node.js
+            </a>
+            and npm version.
+          </p>
+
+          <ul class="ml-5 space-y-3 list-disc list-outside">
+            <li>
+              Do not delete the
+              <span class="px-2 py-1 rounded bg-slate-200 text-primary-darker">
+                package-lock.json / yarn.lock
+              </span>
+              file
+            </li>
+          </ul>
+        </div>
+
+        <!-- INSTALL -->
+        <div>
+          <h5 class="font-semibold mt-7">Install</h5>
+          <p class="mb-6">
+            Navigate to the project root folder using the terminal and install
+            the dependencies
+          </p>
+
+          <pre><code class="rounded-md language-bash">npm install</code></pre>
+          <p class="py-2">or</p>
+          <pre><code class="rounded-md language-bash">yarn install</code></pre>
+        </div>
+
+        <!-- START -->
+        <div>
+          <h5 class="font-semibold mt-7">Start</h5>
+          <p class="mb-6">
+            After the installation is complete, you can launch your app by
+            running:
+          </p>
+
+          <pre><code class="rounded-md language-bash">npm start</code></pre>
+          <p class="py-2">or</p>
+          <pre><code class="rounded-md language-bash">yarn start</code></pre>
+        </div>
+
+        <!-- BUILD -->
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Build</h5>
+
+          <pre><code class="rounded-md language-bash">npm run build</code></pre>
+          <p class="py-2">or</p>
+          <pre><code class="rounded-md language-bash">yarn build</code></pre>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="flex justify-end py-10">
+          <a href="folder-structure.html">
+            <div
+              class="px-4 py-3 transition-all duration-300 border rounded-lg w-60 lg:w-80 text-end hover:border-primary"
+            >
+              <p class="mb-1 text-xs text-muted">Next page</p>
+              <p class="text-sm font-medium text-primary-darker">
+                Folder Structure
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- ALL THE SCRIPTS -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

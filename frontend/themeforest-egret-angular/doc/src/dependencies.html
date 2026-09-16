@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE DEVICE -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret-logo"
+              class="w-10"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- DEPENDENCIES -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <p class="font-medium">Dependencies</p>
+
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Project Dependencies</h5>
+
+          <p class="italic text-muted">
+            Egret Angular is built using a carefully selected set of third-party packages. Some dependencies are essential for the core functionality, while others support specific features. You can remove optional dependencies if you don't need their associated features.
+          </p>
+
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Core Dependencies</h5>
+            <p class="mt-2 mb-3">These are the essential packages required for Egret Angular to function properly:</p>
+            <ul class="ml-5 space-y-2 list-disc list-outside">
+              <li>Angular (v19.2.0)</li>
+              <li>Angular Material (v19.2.1)</li>
+              <li>Angular CDK (v19.2.1)</li>
+              <li>RxJS (v7.5.0)</li>
+              <li>Tailwind CSS (v3.4.17)</li>
+              <li>TypeScript (v5.7.3)</li>
+              <li>Zone.js (v0.15.0)</li>
+            </ul>
+          </div>
+
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">UI & Visualization</h5>
+            <p class="mt-2 mb-3">Packages that enhance the user interface and provide visualization capabilities:</p>
+            <ul class="ml-5 space-y-2 list-disc list-outside">
+              <li>Angular Material (v19.2.1)</li>
+              <li>ApexCharts (v3.35.5) & ng-apexcharts (v1.7.1)</li>
+              <li>Chart.js (v3.9.1) & ng2-charts (v4.0.0)</li>
+              <li>ECharts (v5.6.0) & ngx-echarts (v19.0.0)</li>
+              <li>Perfect Scrollbar (v1.5.5)</li>
+              <li>Angular Calendar (v0.31.0)</li>
+              <li>ngx-color-picker (v16.0.0)</li>
+              <li>ngx-quill (v27.0.1) & Quill (v2.0.3)</li>
+              <li>Driver.js (v1.3.5) - For guided tours</li>
+              <li>Highlight.js (v11.6.0) - For code syntax highlighting</li>
+            </ul>
+          </div>
+
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Internationalization & Localization</h5>
+            <p class="mt-2 mb-3">Packages for multi-language support:</p>
+            <ul class="ml-5 space-y-2 list-disc list-outside">
+              <li>@ngx-translate/core (v15.0.0)</li>
+              <li>@ngx-translate/http-loader (v8.0.0)</li>
+              <li>@angular/localize (v19.2.0)</li>
+              <li>flag-icons (v6.6.6)</li>
+            </ul>
+          </div>
+
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Date & Time Handling</h5>
+            <p class="mt-2 mb-3">Packages for date and time manipulation:</p>
+            <ul class="ml-5 space-y-2 list-disc list-outside">
+              <li>Moment.js (v2.30.1)</li>
+              <li>@angular/material-moment-adapter (v19.2.1)</li>
+            </ul>
+          </div>
+
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Maps & Geolocation</h5>
+            <p class="mt-2 mb-3">Packages for maps and geolocation features:</p>
+            <ul class="ml-5 space-y-2 list-disc list-outside">
+              <li>@angular/google-maps (v19.2.2)</li>
+            </ul>
+          </div>
+
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Development Dependencies</h5>
+            <p class="mt-2 mb-3">Packages used during development but not in production:</p>
+            <ul class="ml-5 space-y-2 list-disc list-outside">
+              <li>@angular-devkit/build-angular (v19.2.0)</li>
+              <li>@angular/cli (v19.2.0)</li>
+              <li>@angular/compiler-cli (v19.2.0)</li>
+              <li>Jasmine & Karma (for testing)</li>
+              <li>Autoprefixer (v10.4.14)</li>
+              <li>PostCSS (v8.4.24)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="theming.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg w-60 lg:w-80 hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">Theming</p>
+              </div>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </main>
+
+    <!-- SCRIPT -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

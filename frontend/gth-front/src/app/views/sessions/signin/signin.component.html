@@ -1,0 +1,58 @@
+<mat-progress-bar mode="determinate" class="absolute top-0 left-0 right-0 invisible" [ngClass]="{'!visible': isLoading}"></mat-progress-bar>
+
+<div class="flex min-h-screen bg-card relative overflow-hidden screen-bottom-left-gradient screen-bottom-right-gradient">
+  <!-- Container with gradient effects applied via SCSS -->
+  <div class="container flex min-h-screen mx-auto relative z-10" [@animate]="{value:'*',params:{y:'40px',opacity:'0',delay:'100ms', duration: '400ms'}}">
+
+    <!-- Left Column -->
+    <div class="flex-1 flex flex-col items-center justify-center p-8">
+      <div class="flex items-center gap-2 mb-12">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded bg-blue-500 text-white font-bold">GTH</span>
+        <span class="text-2xl text-primary font-bold">GTH Front</span>
+      </div>
+      <div class="w-full max-w-md">        
+        <p *ngIf="errorMsg" class="text-center mb-4 text-red-500"><small>{{errorMsg}}</small></p>
+        
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="">
+          <div>
+            <mat-form-field class="w-full">
+              <mat-label>Email*</mat-label>
+              <input matInput type="email" formControlName="email" placeholder="usuario@gth.com">
+              <mat-error *ngIf="signupForm.get('email')?.hasError('required')">Informe o email</mat-error>
+              <mat-error *ngIf="signupForm.get('email')?.hasError('email')">Informe um e-mail válido</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="w-full">
+              <mat-label>Senha*</mat-label>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password"
+                placeholder="••••••••••">
+              <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="signupForm.get('password')?.hasError('required')">Informe a senha</mat-error>
+            </mat-form-field>
+          </div>
+
+          <mat-checkbox formControlName="remember" color="primary">Manter conectado</mat-checkbox>
+
+          <button mat-flat-button color="primary" type="submit" class="w-full py-2 my-4" [disabled]="signupForm.invalid">
+            Entrar
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="hidden lg:flex w-1/2 p-8">
+      <div class="flex flex-col justify-center items-center max-w-lg mx-auto">
+        
+        <img src="assets/images/illustrations/agreement.svg" alt="GTH" class="mb-8">
+        <h1 class="font-medium text-2xl leading-tight text-center mb-8">
+          Gestao de pessoas com uma interface simples e integrada ao backend GTH.
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,197 @@
+<div class="pessoas-page">
+  <div class="page-header">
+    <div>
+      <h1>Pessoas</h1>
+      <p>Cadastro e cálculo de peso ideal</p>
+    </div>
+    <button mat-stroked-button color="primary" type="button" (click)="atualizar()" [disabled]="loading">
+      <mat-icon>refresh</mat-icon>
+      Atualizar
+    </button>
+  </div>
+
+  <div class="content-grid">
+    <mat-card class="form-card">
+      <mat-card-title>Dados da pessoa</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="form" class="person-form">
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" maxlength="120">
+            <mat-error *ngIf="campoInvalido('nome')">{{ erroCampo('nome') }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Data de nascimento</mat-label>
+            <input matInput type="date" formControlName="dataNascimento" [max]="hoje">
+            <mat-error *ngIf="campoInvalido('dataNascimento')">{{ erroCampo('dataNascimento') }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" maxlength="14" placeholder="000.000.000-00" (input)="aplicarMascaraCpf('form')">
+            <mat-error *ngIf="campoInvalido('cpf')">{{ erroCampo('cpf') }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Sexo</mat-label>
+            <mat-select formControlName="sexo">
+              <mat-option value="F">Feminino</mat-option>
+              <mat-option value="M">Masculino</mat-option>
+            </mat-select>
+            <mat-error *ngIf="campoInvalido('sexo')">{{ erroCampo('sexo') }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Altura (cm)</mat-label>
+            <input matInput type="number" step="1" min="50" max="280" formControlName="altura">
+            <mat-error *ngIf="campoInvalido('altura')">{{ erroCampo('altura') }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Peso</mat-label>
+            <input matInput type="number" step="0.01" min="1" max="500" formControlName="peso">
+            <mat-error *ngIf="campoInvalido('peso')">{{ erroCampo('peso') }}</mat-error>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions class="actions">
+        <div class="primary-actions">
+          <button mat-flat-button color="primary" type="button" (click)="incluir()" [disabled]="loading">
+            <mat-icon>add</mat-icon>
+            Incluir
+          </button>
+          <button mat-stroked-button color="primary" type="button" (click)="alterar()" [disabled]="loading || !pessoaSelecionada || !pessoaLiberadaPorPesquisa">
+            <mat-icon>edit</mat-icon>
+            Alterar
+          </button>
+          <button mat-stroked-button color="primary" type="button" (click)="excluir()" [disabled]="loading || !pessoaSelecionada || !pessoaLiberadaPorPesquisa">
+            <mat-icon>delete</mat-icon>
+            Excluir
+          </button>
+        </div>
+        <button class="clear-action" mat-stroked-button color="primary" type="button" (click)="limpar()" [disabled]="loading">
+          Limpar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="table-card">
+      <mat-card-title>Pesquisa</mat-card-title>
+      <mat-card-content>
+        <div class="search-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Pesquisar por CPF</mat-label>
+            <input matInput [formControl]="filtroCpf" maxlength="14" placeholder="000.000.000-00" (input)="pesquisarEnquantoDigita()">
+          </mat-form-field>
+          <button mat-flat-button color="primary" type="button" (click)="pesquisar()" [disabled]="loading">
+            <mat-icon>search</mat-icon>
+            Pesquisar
+          </button>
+        </div>
+
+        <div class="loading-bar" *ngIf="loading">
+          <mat-spinner diameter="28"></mat-spinner>
+        </div>
+
+        <div class="table-wrap">
+          <table mat-table [dataSource]="pessoas">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>ID</th>
+              <td mat-cell *matCellDef="let pessoa">{{ pessoa.id }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef>Nome</th>
+              <td mat-cell *matCellDef="let pessoa">{{ pessoa.nome }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="cpf">
+              <th mat-header-cell *matHeaderCellDef>CPF</th>
+              <td mat-cell *matCellDef="let pessoa">{{ formatarCpf(pessoa.cpf) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="sexo">
+              <th mat-header-cell *matHeaderCellDef>Sexo</th>
+              <td mat-cell *matCellDef="let pessoa">{{ sexoLabel(pessoa.sexo) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="altura">
+              <th mat-header-cell *matHeaderCellDef>Altura</th>
+              <td mat-cell *matCellDef="let pessoa">{{ pessoa.altura | number:'1.0-2' }} cm</td>
+            </ng-container>
+
+            <ng-container matColumnDef="peso">
+              <th mat-header-cell *matHeaderCellDef>Peso</th>
+              <td mat-cell *matCellDef="let pessoa">{{ pessoa.peso | number:'1.1-2' }} kg</td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+              <th mat-header-cell *matHeaderCellDef>Ações</th>
+              <td mat-cell *matCellDef="let pessoa">
+                <button
+                  class="row-action"
+                  [class.row-action-selected]="pessoaSelecionada?.id === pessoa.id"
+                  mat-icon-button
+                  color="primary"
+                  type="button"
+                  matTooltip="Selecionar"
+                  (click)="$event.stopPropagation(); selecionar(pessoa, pessoaLiberadaPorPesquisa)">
+                  <mat-icon>check_circle</mat-icon>
+                </button>
+                <button
+                  class="row-action"
+                  mat-icon-button
+                  color="primary"
+                  type="button"
+                  matTooltip="Calcular peso ideal"
+                  (click)="$event.stopPropagation(); calcularPesoIdeal(pessoa)">
+                  <mat-icon>monitor_weight</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selected-row]="pessoaSelecionada?.id === row.id" (click)="selecionar(row, pessoaLiberadaPorPesquisa)"></tr>
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell empty-state" [attr.colspan]="displayedColumns.length">
+                Nenhuma pessoa encontrada.
+              </td>
+            </tr>
+          </table>
+        </div>
+        <mat-paginator
+          [length]="totalElements"
+          [pageIndex]="pageIndex"
+          [pageSize]="pageSize"
+          [pageSizeOptions]="pageSizeOptions"
+          [disabled]="loading"
+          showFirstLastButtons
+          (page)="mudarPagina($event)">
+        </mat-paginator>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <ng-template #pesoIdealDialog>
+    <div class="peso-dialog">
+      <div class="peso-dialog-header">
+        <div class="peso-dialog-icon">
+          <mat-icon>monitor_weight</mat-icon>
+        </div>
+        <div>
+          <h2 mat-dialog-title>Peso ideal</h2>
+          <p>Resultado calculado no servidor</p>
+        </div>
+      </div>
+    </div>
+    <mat-dialog-content class="peso-dialog-content">
+      <div class="peso-dialog-result">
+        {{ pesoIdealTexto }}
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-flat-button color="primary" mat-dialog-close>OK</button>
+    </mat-dialog-actions>
+  </ng-template>
+</div>

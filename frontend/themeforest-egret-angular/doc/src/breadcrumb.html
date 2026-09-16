@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE SCREEN -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/Egret-light-version.png"
+              alt="Egret-logo"
+              class="w-4"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- MAIN PAGE CONTENT -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <h5 class="font-medium">Breadcrumb</h5>
+
+        <!-- BREADCRUMB OVERVIEW -->
+        <div>
+          <h5 class="font-semibold mt-7">Breadcrumb Overview</h5>
+          <p class="text-base text-muted">
+            Egret Angular provides a flexible breadcrumb system that automatically generates breadcrumbs based on your routing configuration. Breadcrumbs help users understand their current location within the application hierarchy and provide easy navigation to parent routes.
+          </p>
+
+          <div class="mt-6">
+            <h6 class="font-medium">Breadcrumb Features</h6>
+            <p class="mt-2">Egret's breadcrumb system includes the following features:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><strong>Route-based Breadcrumbs</strong>: Automatically generated from Angular route configurations</li>
+              <li><strong>Dynamic Text</strong>: Support for static text or dynamic values from route parameters</li>
+              <li><strong>Customizable Styling</strong>: Easily theme and style breadcrumbs to match your application</li>
+              <li><strong>Hierarchical Navigation</strong>: Reflects the nested structure of your routes</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CONFIGURING BREADCRUMBS -->
+        <div>
+          <h5 class="font-semibold mt-7">Configuring Breadcrumbs</h5>
+          <p class="text-base text-muted">
+            Breadcrumbs in Egret are configured through the Angular routing system. You can define breadcrumb text in your route configuration files.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Basic Configuration</h6>
+            <p class="mt-2">To configure breadcrumbs, add a <code>data</code> property to your route definitions in your routing files. Here's an example from <code>app.routing.ts</code>:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">{
+  path: 'dialogs', 
+  loadChildren: './views/app-dialogs/app-dialogs.module#AppDialogsModule', 
+  data: { title: 'Dialogs', breadcrumb: 'DIALOGS'}
+}</code></pre>
+            <p class="mt-2">The <code>data</code> property contains two important fields:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li><code>title</code>: Sets the page title</li>
+              <li><code>breadcrumb</code>: Sets the text displayed in the breadcrumb for this route</li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <h6 class="font-medium">Child Routes Configuration</h6>
+            <p class="mt-2">For child routes, you can define breadcrumbs in a similar way. Here's an example from a child routing file (<code>app-dialogs.routing.ts</code>):</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">export const DialogsRoutes: Routes = [
+  {
+    path: '',
+    children: [{
+      path: 'confirm',
+      component: ConfirmDialogComponent,
+      data: { title: 'Confirm', breadcrumb: 'CONFIRM' },
+    }, {
+      path: 'loader',
+      component: LoaderDialogComponent,
+      data: { title: 'Loader', breadcrumb: 'LOADER' },
+    }]
+  }
+];</code></pre>
+            <p class="mt-2">Note that the <code>data</code> property is only required for routes with a non-empty path.</p>
+          </div>
+        </div>
+
+        <!-- DYNAMIC BREADCRUMBS -->
+        <div>
+          <h5 class="font-semibold mt-7">Dynamic Breadcrumbs with Route Parameters</h5>
+          <p class="text-base text-muted">
+            Egret's breadcrumb system supports dynamic values from route parameters. This is useful for displaying entity identifiers or names in the breadcrumb path.
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Using Route Parameters</h6>
+            <p class="mt-2">You can include route parameters in your breadcrumb text using the <code>{{paramName}}</code> syntax:</p>
+            
+            <pre class="bg-slate-900 text-white p-4 rounded-md overflow-auto mt-4"><code class="language-typescript">[
+  {
+    path: '',
+    children: [{
+      path: 'author/:username',
+      component: AuthorComponent,
+      data: { title: 'Author', breadcrumb: 'Author / {{username}}' },
+    }, {
+      path: 'book/:bookId',
+      component: BookComponent,
+      data: { title: 'Book', breadcrumb: 'Book / {{bookId}}' },
+    }]
+  }
+];</code></pre>
+            <p class="mt-2">In this example:</p>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li>For the <code>/author/john</code> route, the breadcrumb will display "Author / john"</li>
+              <li>For the <code>/book/123</code> route, the breadcrumb will display "Book / 123"</li>
+            </ul>
+            <p class="mt-2">The parameter values are automatically extracted from the current route and inserted into the breadcrumb text.</p>
+          </div>
+        </div>
+
+        <!-- BEST PRACTICES -->
+        <div>
+          <h5 class="font-semibold mt-7">Best Practices</h5>
+          <p class="text-base text-muted">
+            When configuring breadcrumbs in Egret, follow these best practices:
+          </p>
+
+          <div class="mt-4">
+            <h6 class="font-medium">Breadcrumb Guidelines</h6>
+            <ul class="ml-5 mt-3 space-y-2 list-disc">
+              <li>Use consistent capitalization (all caps(if you want to translate), title case, etc.)</li>
+              <li>Ensure breadcrumb hierarchy matches the logical structure of your application</li>
+              <li>Use dynamic parameters sparingly and only when they add meaningful context</li>
+              <li>Consider internationalizing breadcrumb text for multi-language applications</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="navigation.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg text-start hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">
+                  Navigation
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div>
+            <a href="authentication.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded text-end hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Next page</p>
+                <p class="text-sm font-medium text-primary-darker">Authentication</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ALL THE SCRIPTS -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Egret is a modern web application template designed for Angular projects. Discover its sleek design, responsive layout, and advanced features that streamline your workflow."
+    />
+    <meta
+      name="keywords"
+      content="Angular, Admin Dashboard, Client Dashboard, Dashboard Template, Responsive Design, Modern Web Applications, Angular Template, Web App UI, Admin UI, Client Management, UI Kit, Admin Template, Web Development, Egret Dashboard."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Egret Documentation</title>
+    <!-- CSS FILE -->
+    <link href="./assets/css/atom-one-dark.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <!-- HEADER SECTION -->
+    <header class="bg-white sticky top-0 z-[12] py-6 border-b border-border">
+      <div
+        class="flex items-center justify-between max-w-screen-xl px-4 mx-auto xl:px-0"
+      >
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret Admin Dashboard"
+              class="w-10"
+            />
+            <p class="text-lg font-semibold">Egret Documentation</p>
+          </a>
+        </div>
+
+        <button id="burger" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <!--  SIDEBAR FOR MOBILE SCREEN -->
+    <aside
+      id="sidebar"
+      class="p-6 fixed inset-y-0 left-0 w-64 bg-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-[1111] shadow-lg lg:hidden"
+    >
+      <button id="closeSidebar" class="absolute top-5 right-4">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="./assets/images/egret.svg"
+              alt="Egret-logo"
+              class="w-10"
+            />
+            <p class="font-semibold truncate text-md">Egret</p>
+          </a>
+        </div>
+
+        <ul class="pt-3 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-20 hidden w-full h-full bg-black opacity-20 lg:hidden"
+    ></div>
+
+    <main class="max-w-screen-xl mx-auto top-22">
+      <!-- SIDEBAR FOR LARGE SCREEN -->
+      <aside class="fixed h-screen w-[260px] hidden lg:block lg:pl-4 xl:pl-0">
+        <ul class="py-5 space-y-4">
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="index.html">Quick Start</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="folder-structure.html">Folder Structure</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="layout.html">Layout</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="navigation.html">Navigation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="breadcrumb.html">Breadcrumb</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="authentication.html">Authentication</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="translation.html">Translation</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer text-primary"
+          >
+            <a href="theming.html">Theming</a>
+          </li>
+          <li
+            class="text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer hover:text-primary"
+          >
+            <a href="dependencies.html">Dependencies</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- THEMING DOCUMENTATION -->
+      <div
+        class="bg-white divide-y space-y-10 py-8 px-4 sm:px-8 2xl:px-16 lg:ml-[260px]"
+      >
+        <p class="font-medium">Theming</p>
+
+        <div class="space-y-3">
+          <h5 class="font-semibold mt-7">Theming Overview</h5>
+
+          <p>
+            Egret Angular uses a powerful and flexible theming system that combines Angular Material's theming capabilities with CSS custom properties (variables) and Tailwind CSS. This approach allows for dynamic theme switching, customization, and consistent styling across the application.
+          </p>
+
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Theming Architecture</h5>
+            <p class="mt-2">
+              The theming system in Egret Angular is built on three main components:
+            </p>
+            <ul class="ml-5 space-y-2 list-disc list-outside mt-3">
+              <li><strong>Angular Material Theming</strong>: Provides the foundation for component styling.</li>
+              <li><strong>CSS Custom Properties</strong>: Enables dynamic theme switching without page reloads.</li>
+              <li><strong>Tailwind CSS Integration</strong>: Offers utility classes that respect the current theme.</li>
+            </ul>
+          </div>
+
+          <!-- Available Themes -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Available Themes</h5>
+            <p class="mt-2">
+              Egret Angular comes with two pre-configured themes:
+            </p>
+            <ul class="ml-5 space-y-2 list-disc list-outside mt-3">
+              <li>
+                <strong>Light Theme (egret-navy)</strong>: The default theme with a light background and navy blue primary color.
+              </li>
+              <li>
+                <strong>Dark Theme (egret-navy-dark)</strong>: A dark theme variant with indigo as the primary color.
+              </li>
+            </ul>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+              <div class="border rounded-lg p-4 bg-slate-50">
+                <h6 class="font-semibold mb-2">Light Theme Colors</h6>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #0f174c"></div>
+                    <span>Primary: #0f174c</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #ff8a48"></div>
+                    <span>Accent: #ff8a48</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #ff3d57"></div>
+                    <span>Warn: #ff3d57</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #22C55E"></div>
+                    <span>Success: #22C55E</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="border rounded-lg p-4 bg-slate-800 text-white">
+                <h6 class="font-semibold mb-2">Dark Theme Colors</h6>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #3F51B5"></div>
+                    <span>Primary: #3F51B5</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #ff8a48"></div>
+                    <span>Accent: #ff8a48</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #ff3d57"></div>
+                    <span>Warn: #ff3d57</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded-full" style="background-color: #22C55E"></div>
+                    <span>Success: #22C55E</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar Themes -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Sidebar Themes</h5>
+            <p class="mt-2">
+              In addition to the main application themes, Egret Angular provides two sidebar themes that can be used independently:
+            </p>
+            <ul class="ml-5 space-y-2 list-disc list-outside mt-3">
+              <li>
+                <strong>sidebar-light</strong>: A light sidebar with dark text.
+              </li>
+              <li>
+                <strong>sidebar-dark</strong>: A dark sidebar with light text.
+              </li>
+            </ul>
+            <p class="mt-3">
+              This allows you to mix and match, for example, using a light theme for the main application with a dark sidebar.
+            </p>
+          </div>
+
+          <!-- Switching Themes -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Switching Themes</h5>
+            <p class="mt-2">
+              Egret provides two ways to configure themes:
+            </p>
+
+            <div class="mt-4">
+              <h6 class="font-semibold">1. Build-time Theme Configuration</h6>
+              <p class="mt-1">
+                To set the default material and sidebar themes during build time, modify the <code>setAppLayout</code> method in <code>layout.service.ts</code>:
+              </p>
+              <pre class="language-typescript mt-3"><code>// In layout.service.ts
+setAppLayout() {
+  // ********** SET DEFAULT LAYOUT **********
+  let defaultLayout: ILayoutConf = {
+    ****** other options **********
+    sidebarColor: 'sidebar-dark', // colors are defined in color-tokens.scss
+    matTheme: 'egret-navy', // egret-navy, egret-navy-dark
+  };
+}</code></pre>
+            </div>
+
+            <div class="mt-6">
+              <h6 class="font-semibold">2. Runtime Theme Switching</h6>
+              <p class="mt-1">
+                For runtime theme changes, use the <code>publishLayoutChange</code> method from the LayoutService. This approach ensures that theme changes are properly applied and persisted to localStorage.
+              </p>
+              <pre class="language-typescript mt-3"><code>import { LayoutService } from 'app/shared/services/layout.service';
+
+@Component({...})
+export class YourComponent {
+  constructor(private layoutService: LayoutService) {}
+  
+  // Switch to dark theme
+  switchToDarkTheme() {
+    this.layoutService.publishLayoutChange({
+      matTheme: 'egret-navy-dark'
+    });
+  }
+  
+  // Switch to light theme
+  switchToLightTheme() {
+    this.layoutService.publishLayoutChange({
+      matTheme: 'egret-navy'
+    });
+  }
+
+  // Change sidebar theme
+  setSidebarTheme(theme: string) {
+    this.layoutService.publishLayoutChange({
+      sidebarColor: theme // 'sidebar-dark' or 'sidebar-light'
+    });
+  }
+}</code></pre>
+            </div>
+
+            <p class="mt-4">
+              The <code>publishLayoutChange</code> method automatically:
+            </p>
+            <ul class="ml-5 space-y-2 list-disc list-outside mt-2">
+              <li>Updates the active theme using ThemeService</li>
+              <li>Updates the layout configuration</li>
+              <li>Persists the theme selection to localStorage using the key defined in config.themeLocalStorageKey</li>
+              <li>Notifies subscribers about the layout change</li>
+            </ul>
+          </div>
+
+          <!-- How Theming Works -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">How Theming Works</h5>
+            <p class="mt-2">
+              The theming system works through several key files:
+            </p>
+            
+            <div class="mt-4">
+              <h6 class="font-semibold">1. Color Tokens (_color-tokens.scss)</h6>
+              <p class="mt-1">
+                This file defines the base color palette and semantic color mappings for both light and dark themes.
+              </p>
+              <pre class="language-scss mt-3"><code>// Base colors
+$navy-blue: #0f174c;
+$blue-default: #0081ff; 
+$accent-orange: #ff8a48;
+$warn-red: #ff3d57;
+
+// Light theme semantic colors
+$light-theme-colors: (
+  color-primary: $navy-blue,
+  color-accent: $accent-orange,
+  color-warn: $warn-red,
+  // ...other mappings
+);
+
+// Dark theme semantic colors
+$dark-theme-colors: (
+  color-primary: $indigo,
+  color-accent: $accent-orange,
+  color-warn: $warn-red,
+  // ...other mappings
+);</code></pre>
+            </div>
+            
+            <div class="mt-5">
+              <h6 class="font-semibold">2. CSS Variables (_css-vars.scss)</h6>
+              <p class="mt-1">
+                This file converts the SCSS color tokens into CSS custom properties that can be used throughout the application.
+              </p>
+              <pre class="language-scss mt-3"><code>// Light theme
+.egret-navy {
+  // Set semantic colors from light theme
+  @each $key, $value in colors.$light-theme-colors {
+    --#{$key}: #{get-rgb($value)};
+  }
+}
+
+// Dark theme
+.egret-navy-dark {
+  // Dark theme semantic colors
+  @each $key, $value in colors.$dark-theme-colors {
+    --#{$key}: #{get-rgb($value)};
+  }
+}</code></pre>
+            </div>
+            
+            <div class="mt-5">
+              <h6 class="font-semibold">3. Angular Material Theme Integration (_init.scss)</h6>
+              <p class="mt-1">
+                This file sets up Angular Material's theming system to work with our CSS variables and defines typography.
+              </p>
+              <pre class="language-scss mt-3"><code>// Define typography
+$egret-typography: mat.m2-define-typography-config(
+  $font-family: $font-family-base,
+  $headline-1: mat.m2-define-typography-level(1.875rem, 2.25rem, 800, $font-family-base),
+  // ...other typography levels
+);
+
+// Generate static primary palette for Angular Material
+$static-primary-light-palette: (
+  50: color.adjust($static-primary-light, $lightness: 40%),
+  // ...other palette entries
+);</code></pre>
+            </div>
+            
+            <div class="mt-5">
+              <h6 class="font-semibold">4. Tailwind Integration (tailwind.config.js)</h6>
+              <p class="mt-1">
+                This file extends Tailwind CSS to use our theme's CSS variables, ensuring consistency across utility classes.
+              </p>
+              <pre class="language-javascript mt-3"><code>module.exports = {
+  // Support for dark mode via the .egret-navy-dark class
+  darkMode: ['class', '.egret-navy-dark'],
+  theme: {
+    extend: {
+      colors: {
+        secondary: 'rgb(var(--fg-secondary))',
+        // Background and foreground colors
+        bg: {
+          base: 'rgb(var(--bg-base))',
+          card: 'rgb(var(--bg-card))',
+          // ...other mappings
+        },
+        // ...other color extensions
+      },
+      // ...other theme extensions
+    },
+  },
+};</code></pre>
+            </div>
+          </div>
+
+          <!-- Theme Persistence -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Theme Persistence</h5>
+            <p class="mt-2">
+              Egret persists the theme selection to localStorage. This is handled by the ThemeService's <code>setActiveTheme</code> method:
+            </p>
+            <pre class="language-typescript mt-3"><code>// In theme.service.ts
+private setActiveTheme(theme: ThemeConfig): void {
+  // Remove all existing theme classes
+  this.availableThemes.forEach(t => {
+    this.renderer.removeClass(this.documentElement, t.id);
+  });
+  
+  // Add active theme class
+  this.renderer.addClass(this.documentElement, theme.id);
+  
+  // Add/remove dark theme class
+  if (theme.mode === 'dark') {
+    this.renderer.addClass(this.documentElement, 'egret-navy-dark');
+    this.renderer.addClass(this.bodyElement, 'egret-navy-dark');
+  } else {
+    this.renderer.removeClass(this.documentElement, 'egret-navy-dark');
+    this.renderer.removeClass(this.bodyElement, 'egret-navy-dark');
+  }
+  
+  // Save to localStorage
+  localStorage.setItem(config.themeLocalStorageKey, theme.id);
+}</code></pre>
+            <p class="mt-2">
+              The theme selection is preserved between sessions, ensuring a consistent user experience.
+            </p>
+            <p class="mt-2">
+              To change themes during runtime, use the LayoutService:
+            </p>
+            <pre class="language-typescript mt-3"><code>// Change theme using LayoutService
+layoutService.publishLayoutChange({
+  matTheme: 'egret-navy-dark' // or 'egret-navy' for light theme
+});</code></pre>
+          </div>
+
+          <!-- Customizing Themes -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Customizing Themes</h5>
+            <p class="mt-2">
+              To customize the existing themes or create new ones, you can modify the following files:
+            </p>
+            
+            <ol class="ml-5 space-y-3 list-decimal list-outside mt-3">
+              <li>
+                <strong>_color-tokens.scss</strong>: Modify the base colors or semantic color mappings.
+                <pre class="language-scss mt-2"><code>// Change the primary color for light theme
+$light-theme-colors: (
+  color-primary: #1976d2, // New primary color
+  // ...other mappings remain the same
+);</code></pre>
+              </li>
+              
+              <li>
+                <strong>_css-vars.scss</strong>: Add new theme classes following the pattern of existing themes.
+                <pre class="language-scss mt-2"><code>// Add a new theme
+.egret-purple {
+  // Set semantic colors for the new theme
+  @each $key, $value in $purple-theme-colors {
+    --#{$key}: #{get-rgb($value)};
+  }
+}</code></pre>
+              </li>
+              
+              <li>
+                <strong>tailwind.config.js</strong>: Update the darkMode configuration if adding new dark themes.
+                <pre class="language-javascript mt-2"><code>// Add support for multiple dark themes
+darkMode: ['class', '.egret-navy-dark', '.egret-purple-dark'],</code></pre>
+              </li>
+            </ol>
+            
+            <p class="mt-4">
+              After making changes to these files, you'll need to rebuild the application for the changes to take effect.
+            </p>
+          </div>
+
+          <!-- Using Theme Colors in Components -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Using Theme Colors in Components</h5>
+            <p class="mt-2">
+              There are several ways to use theme colors in your components:
+            </p>
+            
+            <div class="mt-4">
+              <h6 class="font-semibold">1. Using Tailwind CSS Classes</h6>
+              <p class="mt-1">
+                The simplest way is to use Tailwind CSS utility classes that reference theme variables:
+              </p>
+              <pre class="language-html mt-3"><code>&lt;div class="bg-card text-base p-4 rounded-lg shadow-card"&gt;
+  &lt;h2 class="text-primary font-medium"&gt;Card Title&lt;/h2&gt;
+  &lt;p class="text-secondary"&gt;Text with muted color.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            
+            <div class="mt-5">
+              <h6 class="font-semibold">2. Using CSS Variables Directly</h6>
+              <p class="mt-1">
+                You can use CSS variables directly in your component styles:
+              </p>
+              <pre class="language-scss mt-3"><code>// In component SCSS
+.custom-element {
+  background-color: rgb(var(--bg-card));
+  color: rgba(var(--fg-base), 0.87);
+  border: 1px solid rgb(var(--color-primary));
+}</code></pre>
+            </div>
+            
+            <div class="mt-5">
+              <h6 class="font-semibold">3. Using Angular Material Components</h6>
+              <p class="mt-1">
+                Angular Material components automatically use the current theme:
+              </p>
+              <pre class="language-html mt-3"><code>&lt;button mat-raised-button color="primary"&gt;Primary Button&lt;/button&gt;
+&lt;button mat-raised-button color="accent"&gt;Accent Button&lt;/button&gt;
+&lt;button mat-raised-button color="warn"&gt;Warn Button&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+          <!-- Best Practices -->
+          <div class="mt-7 pt-4">
+            <h5 class="font-semibold">Best Practices</h5>
+            <ul class="ml-5 space-y-2 list-disc list-outside mt-3">
+              <li>
+                <strong>Use semantic color variables</strong> instead of hardcoded color values to ensure theme consistency.
+              </li>
+              <li>
+                <strong>Prefer Tailwind utility classes</strong> for styling when possible, as they automatically respect the current theme.
+              </li>
+              <li>
+                <strong>Test your UI in both light and dark themes</strong> to ensure good contrast and readability.
+              </li>
+              <li>
+                <strong>Use the ThemeService</strong> for programmatic theme switching rather than directly manipulating CSS classes.
+              </li>
+              <li>
+                <strong>When creating custom components</strong>, follow the pattern of existing components to ensure they work with theme switching.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="grid grid-cols-2 gap-6 py-10">
+          <div>
+            <a href="translation.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg w-60 lg:w-80 hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Previous page</p>
+                <p class="text-sm font-medium text-primary-darker">Translation</p>
+              </div>
+            </a>
+          </div>
+          <div class="text-right">
+            <a href="dependencies.html">
+              <div
+                class="px-4 py-3 transition-all duration-300 border rounded-lg w-60 lg:w-80 ml-auto hover:border-primary"
+              >
+                <p class="mb-1 text-xs text-muted">Next page</p>
+                <p class="text-sm font-medium text-primary-darker">
+                  Dependencies
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SCRIPT -->
+    <script src="./assets/js/lucide.min.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

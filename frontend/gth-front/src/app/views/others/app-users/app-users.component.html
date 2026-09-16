@@ -1,0 +1,34 @@
+<div class="flex flex-wrap sm:mx-8">
+  <div
+  *ngFor="let user of users"
+  class="w-full md:w-1/3 sm:w-1/2">
+    <mat-card class="user-card p-0">
+      <mat-card-title class="mb-4">
+        <div class="card-title-text flex items-center py-2 px-4">
+          <a href="" class="toolbar-avatar sm mr-4 rtl:ml-4"><img [src]="user.photo" alt=""></a>
+          <span class="text-16">{{user.name}}</span>
+          <span class="flex-grow"></span>
+          <button mat-icon-button [matMenuTriggerFor]="userMenu" class="" size="small">
+              <mat-icon class="text-secondary">more_vert</mat-icon>
+          </button>
+          <mat-menu #userMenu="matMenu">
+              <button mat-menu-item>Follow</button>
+              <button mat-menu-item>Message</button>
+              <button mat-menu-item>Block</button>
+              <button mat-menu-item>Delete</button>
+          </mat-menu>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-card-title>
+      <mat-card-content class="!pt-4">
+        <!-- user detail lines-->
+        <div class="user-details">
+          <p class="flex items-center"><mat-icon class="!flex items-center text-secondary text-[16px]">card_membership</mat-icon>{{user.membership}}</p>
+          <p class="flex items-center"><mat-icon class="!flex items-center text-secondary text-[16px]">date_range</mat-icon>Member since {{user.registered | date}}</p>
+          <p class="flex items-center"><mat-icon class="!flex items-center text-secondary text-[16px]">phone</mat-icon>{{user.phone}}</p>
+          <p class="flex items-center"><mat-icon class="!flex items-center text-secondary text-[16px]">location_on</mat-icon>{{user.address}}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

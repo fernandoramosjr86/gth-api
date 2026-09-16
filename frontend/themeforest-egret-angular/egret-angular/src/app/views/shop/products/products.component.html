@@ -1,0 +1,161 @@
+<div class="min-h-screen sm:mx-8">
+  <mat-sidenav-container class="!bg-card">
+    <mat-sidenav EgretSideNavToggle class="w-60">
+      <div class="pl-2 pr-4">
+        <form [formGroup]="filterForm" name="filterForm">
+          <mat-accordion multi="true" displayMode="flat" class="!px-2">
+            <!-- Categories -->
+            <mat-expansion-panel expanded="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="text-slate-800 font-medium">
+                  Categories
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <ul class="space-y-2 py-1">
+                <li class="px-2 py-1.5 rounded hover:bg-slate-100 cursor-pointer transition-colors" 
+                    [ngClass]="{'font-medium text-primary-600': 'all' === activeCategory}" 
+                    (click)="setActiveCategory('all')">All</li>
+                <li class="px-2 py-1.5 rounded hover:bg-slate-100 cursor-pointer transition-colors capitalize" 
+                    *ngFor="let c of categories$ | async" 
+                    [ngClass]="{'font-medium text-primary-600': c === activeCategory}" 
+                    (click)="setActiveCategory(c)">{{c}}</li>
+              </ul>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </form>
+      </div>
+    </mat-sidenav>
+    <div class="shop-wrap p-4">
+      <!-- Top Toolbar -->
+      <div class="flex flex-col md:flex-row items-center egret-card p-4 mb-6">
+        <button mat-icon-button class="mr-4 rtl:ml-4 text-slate-600" (click)="toggleSideNav()">
+          <mat-icon>short_text</mat-icon>
+        </button>
+        <div class="w-full md:w-64 mb-4 md:mb-0">
+          <form [formGroup]="filterForm" class="relative">
+            <input type="text" 
+                  name="searchProduct" 
+                  placeholder="Search product" 
+                  class="w-full h-10 px-4 py-2 bg-base border border-divider rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" 
+                  [formControl]="filterForm.controls['search']">
+            <mat-icon class="absolute right-3 top-2 text-slate-400">search</mat-icon>
+          </form>
+        </div>
+        
+        <!-- View change buttons and cart -->
+        <span class="flex-grow"></span>
+        <div class="hidden md:flex items-center space-x-2 mr-4">
+          <button mat-icon-button [color]="viewMode === 'list-view' ? 'primary' : ''" (click)="viewMode = 'list-view'" class="text-slate-600">
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+          <button mat-icon-button [color]="viewMode === 'grid-view' ? 'primary' : ''" (click)="viewMode = 'grid-view'" class="text-slate-600">
+            <mat-icon>apps</mat-icon>
+          </button>
+        </div>
+
+        <button mat-raised-button color="primary" routerLink="/shop/cart" class="py-1 px-4 flex items-center">
+          <mat-icon class="mr-2">shopping_cart</mat-icon> Cart ({{cartData.itemCount}})
+        </button>
+      </div>
+      
+      <!-- Products container -->
+      <div class="flex flex-wrap -mx-3" [ngClass]="{'flex-col': viewMode === 'list-view'}">
+        <!-- Product Box -->
+        <div 
+          [ngClass]="{'w-full': viewMode === 'list-view', 'w-full sm:w-1/2 lg:w-1/3 px-3': viewMode === 'grid-view'}" class="mb-6"
+          *ngFor="let product of products$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
+          [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
+          
+          <div class="egret-card h-full transition-shadow !hover:shadow-lg relative"
+               [ngClass]="{'flex': viewMode === 'list-view'}">
+            <!-- Badge -->
+            <div *ngIf="product?.badge?.text" 
+                class="absolute top-4 left-4 z-10 h-12 w-12 rounded-full flex items-center justify-center transform -rotate-12 shadow-md" 
+                [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+              <span class="text-xs font-medium text-center leading-tight">{{product?.badge?.text}}</span>
+            </div>
+            
+            <!-- Product Image -->
+            <div [ngClass]="{'w-1/3': viewMode === 'list-view'}" class="relative">
+              <div class="overflow-hidden cursor-pointer" [routerLink]="['/shop/products/', product._id]">
+                <img [src]="product.photo" alt="" [ngClass]="{'w-auto h-full': viewMode === 'list-view', 'w-full h-48': viewMode === 'grid-view'}" class="object-cover transition-all duration-300">
+              </div>
+            </div>
+            
+            <!-- Product Info -->
+            <div [ngClass]="{'w-2/3 pl-4': viewMode === 'list-view'}" class="p-4 flex flex-col">
+              <!-- Main Info -->
+              <div class="mb-auto">
+                <h3 class="text-lg font-medium hover:text-primary transition-colors cursor-pointer mb-1" 
+                    [routerLink]="['/shop/products/', product._id]">{{product.name}}</h3>
+                <p class="text-secondary text-sm mb-2">{{product?.subtitle}}</p>
+                <p class="text-secondary text-sm mb-1">
+                  <span class="font-medium text-secondary">Category:</span> {{product?.category}}
+                </p>
+                <p class="text-secondary text-sm mb-3">
+                  <span class="font-medium text-secondary">Tags: </span>
+                  <span *ngFor="let t of product.tags" class="mr-1"> {{t}}</span>
+                </p>
+              </div>
+              
+              <!-- Rating and Price Area -->
+              <div class="mt-2">
+                <div *ngIf="viewMode === 'grid-view'" class="mb-2">
+                  <span class="text-sm text-secondary">{{product?.ratings?.rating}} ({{product?.ratings?.ratingCount}} ratings)</span>
+                </div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="price">
+                    <span class="text-lg font-medium mr-2">{{product?.price?.sale | currency:'USD'}}</span>
+                    <del class="text-sm text-secondary">{{product?.price?.previous | currency:'USD'}}</del>
+                  </div>
+                  <button mat-icon-button color="primary" (click)="addToCart(product)" class="bg-primary-50">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Extended Info (List View) -->
+            <div *ngIf="viewMode === 'list-view'" class="w-1/4 border-l border-divider p-4 hidden lg:block">
+              <div class="flex justify-between mb-4">
+                <div class="text-sm text-secondary">{{product?.ratings?.rating}} ({{product?.ratings?.ratingCount}} ratings)</div>
+                <div class="flex space-x-2">
+                  <button mat-icon-button class="text-secondary">
+                    <mat-icon>playlist_add</mat-icon>
+                  </button>
+                  <button mat-icon-button class="text-secondary">
+                    <mat-icon>favorite</mat-icon>
+                  </button>
+                </div>
+              </div>
+              
+              <ul class="space-y-2 text-secondary">
+                <li class="flex items-center">
+                  <mat-icon class="text-primary-500 mr-2 text-sm">check</mat-icon> 
+                  <span class="text-sm">Heavy duty</span>
+                </li>
+                <li class="flex items-center">
+                  <mat-icon class="text-primary-500 mr-2 text-sm">check</mat-icon> 
+                  <span class="text-sm">Water resistance</span>
+                </li>
+                <li class="flex items-center">
+                  <mat-icon class="text-primary-500 mr-2 text-sm">check</mat-icon> 
+                  <span class="text-sm">Clean design</span>
+                </li>
+                <li class="flex items-center">
+                  <mat-icon class="text-primary-500 mr-2 text-sm">check</mat-icon> 
+                  <span class="text-sm">High quality materials</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="w-full flex justify-center my-8">
+          <pagination-controls (pageChange)="currentPage = $event" class="custom-pagination"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-container>
+</div>

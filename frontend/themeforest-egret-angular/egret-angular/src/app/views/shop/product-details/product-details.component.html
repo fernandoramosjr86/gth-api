@@ -1,0 +1,132 @@
+<div class="container mx-auto px-4 !py-6 max-w-7xl">
+  <!-- Navigation & Cart Bar -->
+  <div class="flex items-center justify-between mb-6">
+    <button mat-button class="text-slate-600 hover:text-primary-600 transition-colors" routerLink="/shop">
+      <mat-icon>chevron_left</mat-icon>
+      <span class="ml-1 text-sm font-medium hidden sm:inline-block">Back to Shop</span>
+    </button>
+    <button mat-raised-button color="primary" routerLink="/shop/cart" class="py-1 px-4 flex items-center shadow-md">
+      <mat-icon class="mr-2">shopping_cart</mat-icon> Cart ({{cartData?.itemCount}})
+    </button>
+  </div>
+
+  <!-- Product Content -->
+  <div class="flex flex-col lg:flex-row gap-8">
+    <!-- Product Gallery -->
+    <div class="w-full lg:w-1/2" [@animate]="{value:'*',params:{delay: '100ms', x:'-100px'}}">
+      <div class="flex flex-row-reverse lg:flex-row gap-4">
+        <!-- Thumbnails -->
+        <div class="flex lg:flex-col gap-2 w-16 lg:w-20">
+          <img 
+            *ngFor="let image of photoGallery" 
+            [src]="image.url" 
+            [ngClass]="{'ring-2 ring-primary-500 opacity-60': image.state === '1'}"
+            (click)="changeState(image)"
+            class="w-full h-16 lg:h-20 object-cover rounded-md shadow-sm cursor-pointer hover:opacity-80 transition-all"
+            alt="Product thumbnail"
+          >
+        </div>
+        
+        <!-- Main Image -->
+        <div class="flex-1">
+          <img 
+            *ngFor="let image of photoGallery" 
+            [src]="image.url" 
+            [@fadeInOut]="image.state"
+            class="w-full h-auto rounded-lg shadow-md object-cover"
+            alt="Product image"
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="w-full lg:w-1/2 flex flex-col" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
+      <!-- Rating -->
+      <div class="flex items-center mb-3" *ngIf="product?.ratings?.rating">
+        <div class="flex items-center">
+          <mat-icon class="text-amber-500 text-sm">star</mat-icon>
+          <mat-icon class="text-amber-500 text-sm" *ngIf="product?.ratings?.rating >= 2">star</mat-icon>
+          <mat-icon class="text-amber-500 text-sm" *ngIf="product?.ratings?.rating >= 3">star</mat-icon>
+          <mat-icon class="text-amber-500 text-sm" *ngIf="product?.ratings?.rating >= 4">star</mat-icon>
+          <mat-icon class="text-amber-500 text-sm" *ngIf="product?.ratings?.rating >= 5">star</mat-icon>
+        </div>
+        <span class="text-slate-500 text-sm ml-2">{{product?.ratings?.rating}} ({{product?.ratings?.ratingCount}} ratings)</span>
+      </div>
+      
+      <!-- Title & Description -->
+      <h1 class="text-3xl font-bold text-slate-800 mb-4">{{product?.name}}</h1>
+      
+      <!-- Price -->
+      <div class="flex items-center mb-6">
+        <span class="text-2xl font-semibold text-slate-900 mr-3">{{product?.price?.sale | currency:'USD'}}</span>
+        <span class="text-lg text-slate-500 line-through">{{product?.price?.previous | currency:'USD'}}</span>
+      </div>
+      
+      <!-- Description -->
+      <div class="mb-6">
+        <p class="text-slate-600 leading-relaxed">{{product?.description}}</p>
+      </div>
+      
+      <!-- Category & Tags -->
+      <div class="mb-6 space-y-2">
+        <p class="text-slate-600">
+          <span class="font-medium text-slate-700">Category:</span> 
+          <span class="ml-2 text-primary-600">{{product?.category}}</span>
+        </p>
+        <p class="text-slate-600">
+          <span class="font-medium text-slate-700">Tags:</span> 
+          <span *ngFor="let t of product.tags; let last = last" class="ml-2 text-primary-600">
+            {{t}}<span *ngIf="!last">, </span>
+          </span>
+        </p>
+      </div>
+      
+      <!-- Options -->
+      <div class="space-y-6 mb-8">
+        <div class="space-y-3">
+          <label class="block text-sm font-medium text-slate-700">Choose an option:</label>
+          <mat-radio-group class="flex flex-col space-y-2">
+            <mat-radio-button [value]="'opt1'" color="primary" class="text-slate-700">Option 1</mat-radio-button>
+            <mat-radio-button [value]="'opt2'" color="primary" class="text-slate-700">Option 2</mat-radio-button>
+            <mat-radio-button [value]="'opt3'" color="primary" class="text-slate-700">Option 3</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="space-y-3">
+          <label class="block text-sm font-medium text-slate-700" for="quantity">Quantity:</label>
+          <input 
+            class="w-24 h-10 px-3 py-2 bg-slate-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" 
+            id="quantity" 
+            name="quantity" 
+            type="number" 
+            [(ngModel)]="quantity"
+            min="1"
+          >
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <button 
+          mat-raised-button 
+          color="accent" 
+          (click)="addToCart()" 
+          class="px-6 py-2 flex items-center shadow-md transition-transform hover:scale-105"
+        >
+          <mat-icon class="mr-2">add_shopping_cart</mat-icon> 
+          Add to Cart
+        </button>
+        <button 
+          mat-stroked-button 
+          color="primary" 
+          routerLink="/shop"
+          class="px-6 py-2 flex items-center"
+        >
+          <mat-icon class="mr-2">chevron_left</mat-icon> 
+          Back to Shop
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

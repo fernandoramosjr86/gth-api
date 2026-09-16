@@ -1,0 +1,322 @@
+<div class="container mx-auto px-4 py-6 max-w-7xl">
+  <!-- Page Title & Navigation -->
+  <div class="flex items-center justify-between mb-4 mt-4 ml-4">
+    <h1 class="text-2xl font-bold">Checkout</h1>
+    <button 
+      mat-button 
+      routerLink="/shop/cart" 
+      class="text-slate-600 hover:text-primary-600 transition-colors"
+    >
+      <mat-icon>chevron_left</mat-icon>
+      <span class="ml-1 hidden sm:inline-block">Back to Cart</span>
+    </button>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-8" *ngIf="cart.length">
+    <!-- Billing & Shipping Forms -->
+    <div class="w-full lg:w-2/3" [@animate]="{value:'*',params:{delay: '100ms', x:'-50px'}}">
+      <!-- Billing Address -->
+      <div class="egret-card p-6 mb-6">
+        <h2 class="text-lg font-semibold mb-4">Billing Address</h2>
+        
+        <form [formGroup]="checkoutForm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="col-span-2 md:col-span-1">
+              <mat-form-field class="w-full">
+                <mat-label>Country</mat-label>
+                <mat-select [formControl]="checkoutForm.controls['country']">
+                  <mat-option *ngFor="let c of countries" [value]="c.code">
+                    {{ c.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>First Name</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['firstName']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Last Name</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['lastName']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Company</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['company']">
+                <mat-hint>Optional</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <mat-form-field class="w-full">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['address1']">
+              </mat-form-field>
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <mat-form-field class="w-full">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['address2']">
+                <mat-hint>Optional</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>City</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['city']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Zip/Postal Code</mat-label>
+                <input matInput type="number" [formControl]="checkoutForm.controls['zip']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Phone</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['phone']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Email</mat-label>
+                <input matInput [formControl]="checkoutForm.controls['email']">
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Account & Address Options -->
+      <div class="egret-card p-6 mb-6">
+        <div class="flex flex-col space-y-3">
+          <mat-checkbox class="text-secondary">
+            <span class="ml-2">Create an account for future purchases</span>
+          </mat-checkbox>
+          
+          <mat-checkbox [(ngModel)]="hasAltAddress" class="text-secondary">
+            <span class="ml-2">Ship to a different address</span>
+          </mat-checkbox>
+        </div>
+      </div>
+
+      <!-- Alternative Shipping Address -->
+      <div 
+        class="egret-card p-6 mb-6" 
+        *ngIf="hasAltAddress" 
+        [@animate]="{value:'*',params:{delay:'100ms',y:'50px'}}"
+      >
+        <h2 class="text-lg font-semibold mb-4">Shipping Address</h2>
+        
+        <form [formGroup]="checkoutFormAlt">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="col-span-2 md:col-span-1">
+              <mat-form-field class="w-full">
+                <mat-label>Country</mat-label>
+                <mat-select [formControl]="checkoutFormAlt.controls['country']">
+                  <mat-option *ngFor="let c of countries" [value]="c.code">
+                    {{ c.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>First Name</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['firstName']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Last Name</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['lastName']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Company</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['company']">
+                <mat-hint>Optional</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <mat-form-field class="w-full">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['address1']">
+              </mat-form-field>
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <mat-form-field class="w-full">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['address2']">
+                <mat-hint>Optional</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>City</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['city']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Zip/Postal Code</mat-label>
+                <input matInput type="number" [formControl]="checkoutFormAlt.controls['zip']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Phone</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['phone']">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="w-full">
+                <mat-label>Email</mat-label>
+                <input matInput [formControl]="checkoutFormAlt.controls['email']">
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="w-full lg:w-1/3" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
+      <div class="egret-card p-6 sticky top-4">
+        <h2 class="text-lg font-semibold mb-4">Order Summary</h2>
+        
+        <!-- Product List -->
+        <div class="space-y-4 mb-6">
+          <div class="max-h-60 overflow-y-auto pr-2">
+            <div class="space-y-4">
+              <div class="flex items-start gap-3 pb-3 border-b border-gray-100" *ngFor="let p of cart">
+                <img 
+                  [src]="p.product.photo" 
+                  alt="Product thumbnail"
+                  class="w-12 h-12 rounded-md object-cover shadow-sm"
+                >
+                <div class="flex-grow min-w-0">
+                  <p class="text-sm font-medium truncate">{{p.product.name}}</p>
+                  <p class="text-xs text-secondary">Qty: {{p.data.quantity}}</p>
+                </div>
+                <div class="text-sm font-medium whitespace-nowrap">
+                  {{p.product.price.sale * p.data.quantity | currency}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Order Totals -->
+        <div class="space-y-3 mb-6">
+          <div class="flex justify-between items-center text-sm">
+            <span class="text-secondary">Subtotal</span>
+            <span class="font-medium">{{subTotal | currency}}</span>
+          </div>
+          
+          <div class="flex justify-between items-center text-sm">
+            <span class="text-secondary">VAT</span>
+            <span class="font-medium">{{vat}}%</span>
+          </div>
+          
+          <div class="flex justify-between items-center text-sm">
+            <span class="text-secondary">Shipping</span>
+            <span class="font-medium">{{shipping}}</span>
+          </div>
+          
+          <div class="border-t border-gray-200 pt-3 mt-3">
+            <div class="flex justify-between items-center">
+              <span class="font-semibold">Total</span>
+              <span class="font-bold text-lg">{{total | currency}}</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Payment Methods -->
+        <div class="bg-base rounded-md p-4 mb-6">
+          <h3 class="text-sm font-medium mb-3">Payment Method</h3>
+          
+          <mat-radio-group class="flex flex-col space-y-3" [(ngModel)]="paymentMethod">
+            <mat-radio-button value="paypal" class="bg-card rounded p-3 shadow-sm">
+              <span class="ml-2">PayPal</span>
+            </mat-radio-button>
+
+            <mat-radio-button value="card" class="bg-card rounded p-3 shadow-sm">
+              <span class="ml-2">Credit Card</span>
+            </mat-radio-button>
+
+            <mat-radio-button value="bank" class="bg-card rounded p-3 shadow-sm">
+              <span class="ml-2">Bank Transfer</span>
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-col space-y-3">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="placeOrder()" 
+            class="py-3 shadow-md"
+          >
+            <span class="flex items-center justify-center">
+              <span>Complete Order</span>
+              <mat-icon class="ml-2">check_circle</mat-icon>
+            </span>
+          </button>
+          
+          <button 
+            mat-stroked-button 
+            routerLink="/shop/cart" 
+            class="py-2"
+          >
+            <span class="flex items-center justify-center">
+              <mat-icon class="mr-2">chevron_left</mat-icon>
+              <span>Return to Cart</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty Cart State -->
+  <div *ngIf="!cart.length" [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
+    <div class="flex flex-col items-center justify-center bg-white rounded-lg shadow-md p-10 text-center">
+      <mat-icon class="text-slate-300 text-6xl mb-4">shopping_cart</mat-icon>
+      <h2 class="text-xl font-semibold text-slate-800 mb-2">Your cart is empty</h2>
+      <p class="text-slate-600 mb-6">You need to add products to your cart before proceeding to checkout.</p>
+      <button 
+        mat-raised-button 
+        color="primary" 
+        routerLink="/shop" 
+        class="py-2 px-6"
+      >
+        Browse Products
+      </button>
+    </div>
+  </div>
+</div>

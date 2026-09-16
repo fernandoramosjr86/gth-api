@@ -1,0 +1,21 @@
+<div class="sidebar-panel {{layoutConf?.sidebarColor}}">
+    <div id="scroll-area" [perfectScrollbar] class="navigation-hold flex flex-col !bg-sidebar-bg">
+        <div class="sidebar-hold">
+
+            <!-- App Logo -->
+            <div class="branding !bg-sidebar-bg">
+                <a routerLink="/pessoas" class="gth-brand" *ngIf="layoutConf.sidebarStyle !== 'compact'">
+                    <span class="gth-brand-mark">GTH</span>
+                    <span class="gth-brand-name">GTH Front</span>
+                </a>
+                <a routerLink="/pessoas" class="gth-brand gth-brand-compact" *ngIf="layoutConf.sidebarStyle === 'compact'">
+                    <span class="gth-brand-mark">G</span>
+                </a>
+
+            </div>
+            <!-- Navigation -->
+            <app-sidenav [items]="menuItems" [hasIconMenu]="hasIconTypeMenuItem"
+                [iconMenuTitle]="iconTypeMenuTitle" #sidenav></app-sidenav>
+        </div>
+    </div>
+</div>
